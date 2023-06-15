@@ -210,10 +210,14 @@ class PaintScanWall():
             max_value.append([max_x, max_y, max_z])
 
             point_ceel = []
+            print('dem_x', (max_x - min_x))
+            print('dem_y', (max_y - min_y))
+            print('dem_z', (max_z - min_z))
             z_mean = (max_z + min_z) / 2
-            for y_count in range(int(max_y - min_y)):
-                for x_count in range(int(max_x - min_x)):
-                    point_ceel.append([x_count + min_x, y_count + min_y, z_mean])
+            x_mean = (max_x + min_x) / 2
+            for y_count in range(1,int(max_y - min_y), 50):
+                for x_count in range(1, int(max_z - min_z), 50):
+                    point_ceel.append([(x_mean)/1000, (y_count + min_y)/1000,  (x_count + min_z)/1000])
             pcd = self.NumpyToPCD(np.array(point_ceel))
             R = pcd.get_rotation_matrix_from_xyz((np.pi/2-angle_plate, 0, 0))
             pcd_cell = pcd.rotate(R, center=(0,0,0))

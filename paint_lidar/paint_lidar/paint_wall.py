@@ -74,7 +74,7 @@ class ServiceFromService(Node):
         points = []
         points.append([0.0, 0.0, 1.0])
         points = np.array(points)
-        pcd.points = o3d.utility.Vector3dVector(points)
+        #pcd.points = o3d.utility.Vector3dVector(points)
 
         # include it in the visualizer before non-blocking visualization.
 
@@ -124,7 +124,7 @@ class ServiceFromService(Node):
             #o3d.visualization.draw_geometries([pcd])     
             #o3d.io.write_point_cloud('src/paint_river_volga/paint_lidar/scan_obj/1.pcd', pcd) # save pcd data
             pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
-            o3d.visualization.draw_geometries([pcd_new])  
+            #o3d.visualization.draw_geometries([pcd_new])  
 
             response.success = True
             numpy_arr = paint.PCDToNumpy(pcd_new)
