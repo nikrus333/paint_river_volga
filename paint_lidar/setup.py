@@ -1,11 +1,13 @@
 from setuptools import setup
 
 package_name = 'paint_lidar'
-
+submodules = "paint_lidar/lidar_utils"
+submodules_1 = "paint_lidar/lidar_utils/utils"
+submodules_2 = "paint_lidar/manip_utils"
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=[package_name, submodules, submodules_1, submodules_2],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),

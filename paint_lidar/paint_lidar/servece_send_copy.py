@@ -9,7 +9,7 @@ class MinimalClientAsync(Node):
 
     def __init__(self):
         super().__init__('minimal_client_async')
-        self.cli = self.create_client(AddTwoInts, 'adud_two_ints_proxy')
+        self.cli = self.create_client(AddTwoInts, 'add_two_ints_proxy')
         while not self.cli.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
         self.req = AddTwoInts.Request()
