@@ -44,6 +44,8 @@ class MinimalClientAsync(Node):
         transform_stamped_msg2.transform.rotation.w = 1.0#normale[3]#quaternion.w
         self.tf_broadcaster.sendTransform(transform_stamped_msg2)
 
+    
+
 
 def main(args=None):
     rclpy.init(args=args)
@@ -58,20 +60,31 @@ def main(args=None):
     pcd_new = paint.NumpyToPCD(numpy_arr)
     #print(numpy_arr)
     plane_list = paint.DetectMultiPlanes(pcd_new, min_ratio=0.09, threshold=15, iterations=1000)
+    
+    
+    count_line = 0
+    coun = 0
+    for temp_traect in plane_list:
+        temp_traect = temp_traect[1]
+        for point in temp_traect:
+            if coun % 10 == 0:
+                minimal_client.tf_call_tool(slise=point/1000, count_line=count_line, count=coun)
+            coun += 1
+        count_line += 1
+
     #print(len(plane_list))
 
-    #paint.DrawPlanes(plane_list)
+    paint.DrawPlanes(plane_list)
     
     traectory_list, vector_normale = paint.CreateTraectory(plane_list)
     count_line = 0
     coun = 0
-    for temp_traect in traectory_list:
-        temp_traect = paint.PCDToNumpy(temp_traect)
-        for point in temp_traect:
-            minimal_client.tf_call_tool(slise=point, count_line=count_line, count=coun)
-            coun += 1
-        
-        count_line += 1
+    # for temp_traect in traectory_list:
+    #     temp_traect = paint.PCDToNumpy(temp_traect)
+    #     for point in temp_traect:
+    #         minimal_client.tf_call_tool(slise=point, count_line=count_line, count=coun)
+    #         coun += 1
+    #     count_line += 1
 
     #print(vector_normale)
 

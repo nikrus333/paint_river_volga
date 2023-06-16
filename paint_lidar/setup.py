@@ -4,10 +4,14 @@ package_name = 'paint_lidar'
 submodules = "paint_lidar/lidar_utils"
 submodules_1 = "paint_lidar/lidar_utils/utils"
 submodules_2 = "paint_lidar/manip_utils"
+#submodules_3 = "paint_lidar/libs"
+
+submodules_3 = "/home/nik/ros2_ws/src/paint_river_volga/mcx_ros/libs"
+
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name, submodules, submodules_1, submodules_2],
+    packages=[package_name, submodules, submodules_1, submodules_2, submodules_3],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),

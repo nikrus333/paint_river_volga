@@ -49,7 +49,7 @@ class HokuyoManipulator():
         #self.o3d_pcd.points = o3d.utility.Vector3dVector(points)
         count_pcd.points = o3d.utility.Vector3dVector(points)
         copy_count_pcd = copy.deepcopy(count_pcd)
-        R_tool_set = copy_count_pcd.get_rotation_matrix_from_xyz((np.pi / 2, 0, 0))
+        R_tool_set = copy_count_pcd.get_rotation_matrix_from_xyz((-np.pi / 2, 0, 0))
         copy_count_pcd.rotate(R_tool_set)
         copy_count_pcd.rotate(R)
         #copy_count_pcd.translate(T)
@@ -187,9 +187,10 @@ class PaintScanWall():
             a, b, c, d = w
             
             angle_plate = math.cos((a + b)/((math.sqrt(a*a + b*b + c*c)) * (math.sqrt(2))))
+            angle_two_plate = math.acos((c) / (math.sqrt(a**2 + b**2 + c**2) * math.sqrt(1)))
             pcd_o3d = self.NumpyToPCD(points)
             R = pcd_o3d.get_rotation_matrix_from_xyz((np.pi/2-angle_plate, 0, 0))
-            pcd_o3d = pcd_o3d.rotate(R, center=(0,0,0))
+            #pcd_o3d = pcd_o3d.rotate(R, center=(0,0,0))
             pcd_arr_nump = self.PCDToNumpy(pcd_o3d)
             for point in pcd_arr_nump:
                 if point[0] < min_x:
@@ -220,8 +221,8 @@ class PaintScanWall():
                     point_ceel.append([(x_mean)/1000, (y_count + min_y)/1000,  (x_count + min_z)/1000])
             pcd = self.NumpyToPCD(np.array(point_ceel))
             R = pcd.get_rotation_matrix_from_xyz((np.pi/2-angle_plate, 0, 0))
-            pcd_cell = pcd.rotate(R, center=(0,0,0))
-
+            #pcd_cell = pcd.rotate(R, center=(0,0,0))
+            pcd_cell = pcd
             traectory_cell.append(pcd_cell)
             vector_normale.append([a, b, c])
         

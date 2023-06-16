@@ -20,12 +20,12 @@ install(
   PROGRAMS
   src/client.py
   src/ros2api.py
-  libs/robot_control/__init__.py
-  libs/robot_control/motion_program.py
-  libs/robot_control/robot_command.py
-  libs/robot_control/motionSL_pb2.py
-  libs/robot_control/system_defs.py
-  libs/robot_control/motionSL_hash.json
+  libs/__init__.py
+  libs/motion_program.py
+  libs/robot_command.py
+  libs/motionSL_pb2.py
+  libs/system_defs.py
+  libs/motionSL_hash.json
   DESTINATION lib/${PROJECT_NAME}
 )
 rosidl_generate_interfaces(${PROJECT_NAME}

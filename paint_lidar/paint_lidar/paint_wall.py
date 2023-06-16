@@ -13,31 +13,133 @@ import open3d as o3d
 import numpy as np
 import os
 import random
-
+import math
+from ament_index_python.packages import get_package_share_directory
 from .lidar_utils import test_driver_laser
-
+import sys
+sys.path.append("/home/nik/ros2_ws/src/paint_river_volga/mcx_ros/libs/")
+from system_defs import InterpreterStates
+#import robot_command.RobotCommand
+from robot_command import RobotCommand
+from motion_program import Waypoint, MotionProgram
+print('good import')
 
 
 class ManipUse():
     def __init__(self) -> None:
+        self.__lastMsg = None
         parameter_tree = motorcortex.ParameterTree()
-        motorcortex_types = motorcortex.MessageTypes()
-        motorcortex_msg = motorcortex_types.motorcortex()
+        self.motorcortex_types = motorcortex.MessageTypes()
+        license_file = os.path.join(
+            get_package_share_directory('mcx_ros'), 'license', 'mcx.cert.pem')
+        # Open request connection
+        try:
+            self.req, self.sub = motorcortex.connect('wss://192.168.5.86:5568:5567', self.motorcortex_types, parameter_tree,
+                                                     timeout_ms=1000, certificate=license_file,
+                                                     login="admin", password="vectioneer")
+            self.subscription = self.sub.subscribe(['root/Control/fkToolSetPoint/toolCoordinates'], 'group1', 5)
+            self.subscription.get()
+            
+        except Exception as e:
+            
+        
+            return
+        self.robot = RobotCommand(self.req, self.motorcortex_types)
+        self.robot.reset()
+        
 
-        req, sub = motorcortex.connect('wss://192.168.5.85:5568:5567', 
-                                        motorcortex_types, 
-                                        parameter_tree,timeout_ms=1000, 
-                                        certificate="motorcortex-robot-control-python/test/mcx.cert.pem",
-                                        login="admin",password="vectioneer")
+        if self.robot.engage():
+            print('Robot is at Engage')
+        else:
+            print('Failed to set robot to Engage')
+        self.motion_program_start = MotionProgram(self.req, self.motorcortex_types)
+        self.start_position_jnt = Waypoint([math.radians(-93.0), math.radians(9.78), math.radians(
+            125), math.radians(-44.87), math.radians(90.0), math.radians(0.0)], 0.25)
+        
+        self.motion_program_start.addMoveJ([self.start_position_jnt], 0.1, 0.1)
+        self.sendProgram(self.robot, self.motion_program_start)
 
-        subscription = sub.subscribe(['root/Control/fkToolSetPoint/toolCoordinates'], 'group1', 5)
-        subscription.get()
-        print('end')
+    def sendProgram(self, robot, motion_program):
+        # send the program
+        program_sent = motion_program.send("examp1").get()
+        robot_play_state = robot.play()
+        # try to play the program
+        if robot_play_state == InterpreterStates.PROGRAM_RUN_S.value:
+            print("Playing program")
+            while robot_play_state != InterpreterStates.PROGRAM_IS_DONE.value:
+                robot_play_state = robot.play()
+            print("Program is done")
 
+        elif robot_play_state == InterpreterStates.MOTION_NOT_ALLOWED_S.value:
+            print("Can not play program, Robot is not at start")
+            print("Moving to start")
+            if robot.moveToStart(100):
+                print("Move to start completed")
+                robot_play_state_start = robot.play()
+                if robot_play_state_start == InterpreterStates.PROGRAM_RUN_S.value:
+                    print("Playing program")
+                    while robot_play_state != InterpreterStates.PROGRAM_IS_DONE.value:
+                        robot_play_state = robot.play()
+                    print("Program is done")
+                elif robot_play_state_start == InterpreterStates.PROGRAM_IS_DONE.value:
+                    # pass
+                    print("Program is done")
+                else:
+                    raise RuntimeError(
+                        "Failed to play program, state: %s" % robot.getState())
+            else:
+                raise RuntimeError('Failed to move to start')
+        elif robot_play_state == InterpreterStates.PROGRAM_IS_DONE.value:
+            print("Program is done")
+        else:
+            raise RuntimeError("Failed to play program, state: %s" %
+                            robot.getState()) 
+
+    def mission_scan(self):
+        motion_program_start = MotionProgram(self.req, self.motorcortex_types)
+        first_pose = Waypoint([47.61984227767179/1000, -406.28421894826533/1000, 289.28113855635286/1000, math.radians(0), math.radians(0), math.radians(180)])
+        second_pose = Waypoint([47.61984227767179/1000, -592.283/1000, 291.2816/1000, math.radians(0), math.radians(0), math.radians(180)])
+        
+        motion_program_start.addMoveL([first_pose, second_pose], 0.008, 0.02)
+        program_sent = motion_program_start.send("examp1").get()
+        # send the program
+        print(program_sent.status)
+        robot_play_state = self.robot.play()
+        # try to play the program
+        if robot_play_state == InterpreterStates.PROGRAM_RUN_S.value:
+            print("Playing program")
+        elif robot_play_state == InterpreterStates.MOTION_NOT_ALLOWED_S.value:
+            print("Can not play program, Robot is not at start")
+            print("Moving to start")
+            if self.robot.moveToStart(100):
+                print("Move to start completed")
+                robot_play_state_start = self.robot.play()
+                if robot_play_state_start == InterpreterStates.PROGRAM_RUN_S.value:
+                    print("Playing program")
+                elif robot_play_state_start == InterpreterStates.PROGRAM_IS_DONE.value:
+                    # pass
+                    print("Program is done")
+                else:
+                    raise RuntimeError(
+                        "Failed to play program, state: %s" % self.robot.getState())
+            else:
+                raise RuntimeError('Failed to move to start')
+        elif robot_play_state == InterpreterStates.PROGRAM_IS_DONE.value:
+            print("Program is done")
+        else:
+            raise RuntimeError("Failed to play program, state: %s" %
+                            self.robot.getState())
+
+    # waiting until the program is finished
+
+        # while self.robot.getState() is InterpreterStates.PROGRAM_RUN_S.value:
+        #     time.sleep(0.1)
+        
 class ServiceFromService(Node):
 
     def __init__(self):
         super().__init__('action_from_service')
+        self.robot = ManipUse()
         self.service_done_event = Event()
 
         self.callback_group = ReentrantCallbackGroup()
@@ -88,42 +190,47 @@ class ServiceFromService(Node):
 
         # run non-blocking visualization. 
         # To exit, press 'q' or click the 'x' of the window.
-        keep_running = False
+        keep_running = True
 
         paint = test_driver_laser.PaintScanWall()
-
+        self.robot.mission_scan()
         try:
             while keep_running:
-                if time.time() - previous_t > dt:
-                    # Options (uncomment each to try them out):
-                    # 1) extend with ndarrays.
-                    params = subscription.read()
-                    #print(params)
-                    value = params[0].value
-                    if value == [0, 0, 0, 0, 0, 0]:
-                        continue
-                    print(value)
-                    trans, euler = value[:3], value[3:]
-                    #print(trans)
-                    trans_init, R = hok.coord_euler_to_matrix(trans, euler)
-                    #print(hok.trans_init)
-                    #print(trans_init)
-                    time.sleep(1)
-                    pcd = pcd + hok.read_laser(trans_init, R)
+                if self.robot.robot.getState() != InterpreterStates.PROGRAM_IS_DONE.value:
+                
+                    if time.time() - previous_t > dt:
+                        # Options (uncomment each to try them out):
+                        # 1) extend with ndarrays.
+                        params = self.robot.subscription.read()
+                        #print(params)
+                        value = params[0].value
+                        if value == [0, 0, 0, 0, 0, 0]:
+                            continue
+                        print(value)
+                        trans, euler = value[:3], value[3:]
+                        #print(trans)
+                        trans_init, R = hok.coord_euler_to_matrix(trans, euler)
+                        #print(hok.trans_init)
+                        #print(trans_init)
+                        time.sleep(1)
+                        pcd = pcd + hok.read_laser(trans_init, R)
 
 
-                    previous_t = time.time()
-                    #print(pcd.points)
-                    #o3d.visualization.draw_geometries([pcd])
+                        previous_t = time.time()
+                        #print(pcd.points)
+                        #o3d.visualization.draw_geometries([pcd])
+                else:
+                    break
 
         except KeyboardInterrupt:
             print('End process scan')
             req.close()
             sub.close()
         finally:
-            #o3d.visualization.draw_geometries([pcd])     
+            o3d.visualization.draw_geometries([pcd])     
             #o3d.io.write_point_cloud('src/paint_river_volga/paint_lidar/scan_obj/1.pcd', pcd) # save pcd data
             pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
+            pcd_new = pcd
             #o3d.visualization.draw_geometries([pcd_new])  
 
             response.success = True
