@@ -37,22 +37,23 @@ class HokuyoManipulator():
         
         for temp in dict_laser:
             #print(temp)
-            x = math.cos(deg2rad(temp)) * dict_laser[temp] + T[0][0] * 1000
-            y = math.sin(deg2rad(temp)) * dict_laser[temp] + T[1][0] * 1000
-            z = 0.0 + T[2][0] *1000
+            z = math.cos(deg2rad(temp)) * dict_laser[temp] / 1000 #+ T[0][0] #* 1000
+            x = -math.sin(deg2rad(temp)) * dict_laser[temp] / 1000 #+ T[1][0] #* 1000
+            y = 0.0 #+ T[2][0] #*1000
             points.append([x, y, z])
             #print(x, y, z)
             #print('----------------')
         #print(len(points))
+        
         points = points[240:440]
         points = np.array(points)
         #self.o3d_pcd.points = o3d.utility.Vector3dVector(points)
         count_pcd.points = o3d.utility.Vector3dVector(points)
         copy_count_pcd = copy.deepcopy(count_pcd)
-        R_tool_set = copy_count_pcd.get_rotation_matrix_from_xyz((-np.pi / 2, 0, 0))
-        copy_count_pcd.rotate(R_tool_set)
-        copy_count_pcd.rotate(R)
-        #copy_count_pcd.translate(T)
+        R_tool_set = copy_count_pcd.get_rotation_matrix_from_xyz((0, 0, 0))
+        copy_count_pcd.rotate(R_tool_set, center=(0, 0, 0))
+        copy_count_pcd.rotate(R, center=(0, 0, 0))
+        copy_count_pcd.translate(T)
     # o3d.visualization.draw_geometries([o3d_pcd])
         
         #pcd_final = count_pcd.transform(T)
@@ -172,6 +173,15 @@ class PaintScanWall():
         return pcd
     
     def CreateTraectory(self, pcd_list) -> None:
+        def transform_plane_to_xy_plane(a, b, c, d):
+            cos_phi = c / math.sqrt(a**2 + b**2 + c**2)
+            sin_phi = math.sqrt((a**2 + b**2) / (a**2 + b**2 + c**2))
+            u1 = b / math.sqrt(a**2 + b**2 + c**2)
+            u2 = -a / math.sqrt(a**2 + b**2 + c**2)
+            R =  np.array([[cos_phi + u1**2 * (1 - cos_phi), u1*u2 * (1 - cos_phi), u2 + sin_phi],
+                    [u1*u2 * (1 - cos_phi), cos_phi + u1**2 * (1 - cos_phi), -u1 * sin_phi],
+                    [-u2 * sin_phi, u1 * sin_phi, cos_phi]])
+            return R 
         #print(pcd_list)
         min_value = []
         max_value = []
@@ -189,8 +199,8 @@ class PaintScanWall():
             angle_plate = math.cos((a + b)/((math.sqrt(a*a + b*b + c*c)) * (math.sqrt(2))))
             angle_two_plate = math.acos((c) / (math.sqrt(a**2 + b**2 + c**2) * math.sqrt(1)))
             pcd_o3d = self.NumpyToPCD(points)
-            R = pcd_o3d.get_rotation_matrix_from_xyz((np.pi/2-angle_plate, 0, 0))
-            #pcd_o3d = pcd_o3d.rotate(R, center=(0,0,0))
+            R = transform_plane_to_xy_plane(a, b, c, d)
+            pcd_o3d = pcd_o3d.rotate(R)
             pcd_arr_nump = self.PCDToNumpy(pcd_o3d)
             for point in pcd_arr_nump:
                 if point[0] < min_x:
@@ -211,22 +221,32 @@ class PaintScanWall():
             max_value.append([max_x, max_y, max_z])
 
             point_ceel = []
-            print('dem_x', (max_x - min_x))
-            print('dem_y', (max_y - min_y))
+            print('max_x   min_x', (max_x , min_x))
+            print('max_y   min_y', (max_y, min_y))
             print('dem_z', (max_z - min_z))
             z_mean = (max_z + min_z) / 2
             x_mean = (max_x + min_x) / 2
-            for y_count in range(1,int(max_y - min_y), 50):
-                for x_count in range(1, int(max_z - min_z), 50):
-                    point_ceel.append([(x_mean)/1000, (y_count + min_y)/1000,  (x_count + min_z)/1000])
+            y_step = 0.05
+            x_step = 0.05
+            
+            x_dist = min_x
+            while min_y < max_y:
+                print('here')
+                while min_x <= max_x:
+                    point_ceel.append([(min_x), (min_y), (z_mean)])
+                    min_x += x_step
+                min_x = x_dist
+                min_y += y_step
+            print(point_ceel)    
             pcd = self.NumpyToPCD(np.array(point_ceel))
-            R = pcd.get_rotation_matrix_from_xyz((np.pi/2-angle_plate, 0, 0))
-            #pcd_cell = pcd.rotate(R, center=(0,0,0))
+           
+            pcd_cell = pcd.rotate(np.linalg.inv(R))
             pcd_cell = pcd
             traectory_cell.append(pcd_cell)
             vector_normale.append([a, b, c])
         
         return traectory_cell, vector_normale
+    
 
     def convert_np_srv(self, pcd_arr):
         #print(pcd_arr)

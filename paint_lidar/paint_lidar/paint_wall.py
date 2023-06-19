@@ -34,7 +34,7 @@ class ManipUse():
             get_package_share_directory('mcx_ros'), 'license', 'mcx.cert.pem')
         # Open request connection
         try:
-            self.req, self.sub = motorcortex.connect('wss://192.168.5.86:5568:5567', self.motorcortex_types, parameter_tree,
+            self.req, self.sub = motorcortex.connect('wss://192.168.5.85:5568:5567', self.motorcortex_types, parameter_tree,
                                                      timeout_ms=1000, certificate=license_file,
                                                      login="admin", password="vectioneer")
             self.subscription = self.sub.subscribe(['root/Control/fkToolSetPoint/toolCoordinates'], 'group1', 5)
@@ -190,37 +190,37 @@ class ServiceFromService(Node):
 
         # run non-blocking visualization. 
         # To exit, press 'q' or click the 'x' of the window.
-        keep_running = True
-
+        debug = True
+        
         paint = test_driver_laser.PaintScanWall()
         self.robot.mission_scan()
         try:
-            while keep_running:
-                if self.robot.robot.getState() != InterpreterStates.PROGRAM_IS_DONE.value:
-                
-                    if time.time() - previous_t > dt:
-                        # Options (uncomment each to try them out):
-                        # 1) extend with ndarrays.
-                        params = self.robot.subscription.read()
-                        #print(params)
-                        value = params[0].value
-                        if value == [0, 0, 0, 0, 0, 0]:
-                            continue
-                        print(value)
-                        trans, euler = value[:3], value[3:]
-                        #print(trans)
-                        trans_init, R = hok.coord_euler_to_matrix(trans, euler)
-                        #print(hok.trans_init)
-                        #print(trans_init)
-                        time.sleep(1)
-                        pcd = pcd + hok.read_laser(trans_init, R)
+            if debug:
+                while True:
+                    if self.robot.robot.getState() != InterpreterStates.PROGRAM_IS_DONE.value:
+                        if time.time() - previous_t > dt:
+                            # Options (uncomment each to try them out):
+                            # 1) extend with ndarrays.
+                            params = self.robot.subscription.read()
+                            #print(params)
+                            value = params[0].value
+                            if value == [0, 0, 0, 0, 0, 0]:
+                                continue
+                            print(value)
+                            trans, euler = value[:3], value[3:]
+                            #print(trans)
+                            trans_init, R = hok.coord_euler_to_matrix(trans, euler)
+                            #print(hok.trans_init)
+                            #print(trans_init)
+                            time.sleep(1)
+                            pcd = pcd + hok.read_laser(trans_init, R)
 
 
-                        previous_t = time.time()
-                        #print(pcd.points)
-                        #o3d.visualization.draw_geometries([pcd])
-                else:
-                    break
+                            previous_t = time.time()
+                            #print(pcd.points)
+                            #o3d.visualization.draw_geometries([pcd])
+                    else:
+                        break
 
         except KeyboardInterrupt:
             print('End process scan')
