@@ -16,13 +16,11 @@ import random
 import math
 from ament_index_python.packages import get_package_share_directory
 from .lidar_utils import test_driver_laser
-import sys
-sys.path.append("/home/nik/ros2_ws/src/paint_river_volga/mcx_ros/libs/")
-from system_defs import InterpreterStates
-#import robot_command.RobotCommand
-from robot_command import RobotCommand
-from motion_program import Waypoint, MotionProgram
-print('good import')
+
+
+from robot_control.system_defs import InterpreterStates
+from robot_control.robot_command import RobotCommand
+from robot_control.motion_program import Waypoint, MotionProgram
 
 
 class ManipUse():
@@ -48,92 +46,6 @@ class ManipUse():
         self.robot.reset()
         
 
-        if self.robot.engage():
-            print('Robot is at Engage')
-        else:
-            print('Failed to set robot to Engage')
-        self.motion_program_start = MotionProgram(self.req, self.motorcortex_types)
-        self.start_position_jnt = Waypoint([math.radians(-93.0), math.radians(9.78), math.radians(
-            125), math.radians(-44.87), math.radians(90.0), math.radians(0.0)], 0.25)
-        
-        self.motion_program_start.addMoveJ([self.start_position_jnt], 0.1, 0.1)
-        self.sendProgram(self.robot, self.motion_program_start)
-
-    def sendProgram(self, robot, motion_program):
-        # send the program
-        program_sent = motion_program.send("examp1").get()
-        robot_play_state = robot.play()
-        # try to play the program
-        if robot_play_state == InterpreterStates.PROGRAM_RUN_S.value:
-            print("Playing program")
-            while robot_play_state != InterpreterStates.PROGRAM_IS_DONE.value:
-                robot_play_state = robot.play()
-            print("Program is done")
-
-        elif robot_play_state == InterpreterStates.MOTION_NOT_ALLOWED_S.value:
-            print("Can not play program, Robot is not at start")
-            print("Moving to start")
-            if robot.moveToStart(100):
-                print("Move to start completed")
-                robot_play_state_start = robot.play()
-                if robot_play_state_start == InterpreterStates.PROGRAM_RUN_S.value:
-                    print("Playing program")
-                    while robot_play_state != InterpreterStates.PROGRAM_IS_DONE.value:
-                        robot_play_state = robot.play()
-                    print("Program is done")
-                elif robot_play_state_start == InterpreterStates.PROGRAM_IS_DONE.value:
-                    # pass
-                    print("Program is done")
-                else:
-                    raise RuntimeError(
-                        "Failed to play program, state: %s" % robot.getState())
-            else:
-                raise RuntimeError('Failed to move to start')
-        elif robot_play_state == InterpreterStates.PROGRAM_IS_DONE.value:
-            print("Program is done")
-        else:
-            raise RuntimeError("Failed to play program, state: %s" %
-                            robot.getState()) 
-
-    def mission_scan(self):
-        motion_program_start = MotionProgram(self.req, self.motorcortex_types)
-        first_pose = Waypoint([47.61984227767179/1000, -406.28421894826533/1000, 289.28113855635286/1000, math.radians(0), math.radians(0), math.radians(180)])
-        second_pose = Waypoint([47.61984227767179/1000, -592.283/1000, 291.2816/1000, math.radians(0), math.radians(0), math.radians(180)])
-        
-        motion_program_start.addMoveL([first_pose, second_pose], 0.008, 0.02)
-        program_sent = motion_program_start.send("examp1").get()
-        # send the program
-        print(program_sent.status)
-        robot_play_state = self.robot.play()
-        # try to play the program
-        if robot_play_state == InterpreterStates.PROGRAM_RUN_S.value:
-            print("Playing program")
-        elif robot_play_state == InterpreterStates.MOTION_NOT_ALLOWED_S.value:
-            print("Can not play program, Robot is not at start")
-            print("Moving to start")
-            if self.robot.moveToStart(100):
-                print("Move to start completed")
-                robot_play_state_start = self.robot.play()
-                if robot_play_state_start == InterpreterStates.PROGRAM_RUN_S.value:
-                    print("Playing program")
-                elif robot_play_state_start == InterpreterStates.PROGRAM_IS_DONE.value:
-                    # pass
-                    print("Program is done")
-                else:
-                    raise RuntimeError(
-                        "Failed to play program, state: %s" % self.robot.getState())
-            else:
-                raise RuntimeError('Failed to move to start')
-        elif robot_play_state == InterpreterStates.PROGRAM_IS_DONE.value:
-            print("Program is done")
-        else:
-            raise RuntimeError("Failed to play program, state: %s" %
-                            self.robot.getState())
-
-    # waiting until the program is finished
-
-        # while self.robot.getState() is InterpreterStates.PROGRAM_RUN_S.value:
-        #     time.sleep(0.1)
         
 class ServiceFromService(Node):
 
@@ -193,7 +105,7 @@ class ServiceFromService(Node):
         debug = True
         
         paint = test_driver_laser.PaintScanWall()
-        self.robot.mission_scan()
+        #self.robot.mission_scan()
         try:
             if debug:
                 while True:
@@ -206,6 +118,7 @@ class ServiceFromService(Node):
                             value = params[0].value
                             if value == [0, 0, 0, 0, 0, 0]:
                                 continue
+                            print(self.robot.robot.getState())
                             print(value)
                             trans, euler = value[:3], value[3:]
                             #print(trans)

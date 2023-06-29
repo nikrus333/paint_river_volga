@@ -132,19 +132,50 @@ class PaintScanWall():
         results = plane_list
         planes = []
         colors = []
-        for _, plane in results:
+        count = 0
+        if len(plane_list) < 4:
+            for _, plane in results:
+                match count:
+                    case 0:
+                        r = 1
+                        g = 0
+                        b = 0
+                    case 1:
+                        r = 0
+                        g = 1
+                        b = 0
+                    case 2:
+                        r = 0
+                        g = 0
+                        b = 1
+                    case 3:
+                        r = 1
+                        g = 1
+                        b = 0
+                count +=1
+                color = np.zeros((plane.shape[0], plane.shape[1]))
+                color[:, 0] = r
+                color[:, 1] = g
+                color[:, 2] = b
 
-            r = random.random()
-            g = random.random()
-            b = random.random()
+                planes.append(plane)
+                colors.append(color)
 
-            color = np.zeros((plane.shape[0], plane.shape[1]))
-            color[:, 0] = r
-            color[:, 1] = g
-            color[:, 2] = b
 
-            planes.append(plane)
-            colors.append(color)
+        else:
+            for _, plane in results:
+
+                r = random.random()
+                g = random.random()
+                b = random.random()
+
+                color = np.zeros((plane.shape[0], plane.shape[1]))
+                color[:, 0] = r
+                color[:, 1] = g
+                color[:, 2] = b
+
+                planes.append(plane)
+                colors.append(color)
     
         planes = np.concatenate(planes, axis=0)
         colors = np.concatenate(colors, axis=0)
