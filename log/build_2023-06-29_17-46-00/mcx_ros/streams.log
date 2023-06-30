@@ -1,0 +1,246 @@
+[0.251s] Invoking command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake /home/nik/ros2_ws/src/paint_river_volga/mcx_ros -DCMAKE_INSTALL_PREFIX=/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros
+[0.289s] -- The C compiler identification is GNU 11.3.0
+[0.329s] -- The CXX compiler identification is GNU 11.3.0
+[0.333s] -- Detecting C compiler ABI info
+[0.378s] -- Detecting C compiler ABI info - done
+[0.383s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.383s] -- Detecting C compile features
+[0.383s] -- Detecting C compile features - done
+[0.385s] -- Detecting CXX compiler ABI info
+[0.438s] -- Detecting CXX compiler ABI info - done
+[0.444s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.444s] -- Detecting CXX compile features
+[0.444s] -- Detecting CXX compile features - done
+[0.446s] -- Found ament_cmake: 1.3.4 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.634s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter 
+[0.711s] -- Found std_msgs: 4.2.3 (/opt/ros/humble/share/std_msgs/cmake)
+[0.743s] -- Found rosidl_generator_c: 3.1.4 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.747s] -- Found rosidl_adapter: 3.1.4 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.753s] -- Found rosidl_generator_cpp: 3.1.4 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.762s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.776s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.827s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[1.027s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[1.315s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.400s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.419s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.6", minimum required is "3.6") 
+[1.420s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.441s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.6", minimum required is "3.5") 
+[1.441s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.441s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.441s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.457s] -- Found PythonExtra: .so  
+[1.481s] -- Found ament_lint_auto: 0.12.6 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.524s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.524s] -- Added test 'lint_cmake' to check CMake code style
+[1.525s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.526s] -- Added test 'xmllint' to check XML markup files
+[1.528s] -- Configuring done
+[1.545s] -- Generating done
+[1.546s] -- Build files have been written to: /home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros
+[1.551s] Invoked command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake /home/nik/ros2_ws/src/paint_river_volga/mcx_ros -DCMAKE_INSTALL_PREFIX=/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros
+[1.552s] Invoking command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --build /home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros -- -j8 -l8
+[1.577s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.583s] [  6%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.588s] [  6%] Built target ament_cmake_python_copy_mcx_ros
+[1.826s] running egg_info
+[1.827s] creating mcx_ros.egg-info
+[1.831s] writing mcx_ros.egg-info/PKG-INFO
+[1.831s] writing dependency_links to mcx_ros.egg-info/dependency_links.txt
+[1.831s] writing top-level names to mcx_ros.egg-info/top_level.txt
+[1.831s] writing manifest file 'mcx_ros.egg-info/SOURCES.txt'
+[1.833s] reading manifest file 'mcx_ros.egg-info/SOURCES.txt'
+[1.833s] writing manifest file 'mcx_ros.egg-info/SOURCES.txt'
+[1.857s] [  9%] [32mBuilding C object CMakeFiles/mcx_ros__rosidl_generator_c.dir/rosidl_generator_c/mcx_ros/srv/detail/move_srv__functions.c.o[0m
+[1.859s] [  9%] Built target ament_cmake_python_build_mcx_ros_egg
+[1.867s] [  9%] Built target mcx_ros__cpp
+[1.875s] [ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.875s] [ 19%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.875s] [ 19%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.949s] [ 22%] [32m[1mLinking C shared library libmcx_ros__rosidl_generator_c.so[0m
+[1.987s] [ 22%] Built target mcx_ros__rosidl_generator_c
+[1.999s] [ 25%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.038s] [ 29%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[2.055s] [ 32%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.233s] [ 35%] [32mBuilding CXX object CMakeFiles/mcx_ros__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/mcx_ros/srv/move_srv__type_support.cpp.o[0m
+[2.292s] [ 38%] [32mBuilding CXX object CMakeFiles/mcx_ros__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/mcx_ros/srv/detail/move_srv__type_support.cpp.o[0m
+[2.325s] [ 41%] [32mBuilding CXX object CMakeFiles/mcx_ros__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/mcx_ros/srv/detail/dds_fastrtps/move_srv__type_support.cpp.o[0m
+[2.381s] [ 45%] [32mBuilding CXX object CMakeFiles/mcx_ros__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/mcx_ros/srv/detail/move_srv__type_support_c.cpp.o[0m
+[2.385s] [ 48%] [32mBuilding C object CMakeFiles/mcx_ros__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/mcx_ros/srv/detail/move_srv__type_support.c.o[0m
+[2.448s] [ 51%] [32mBuilding CXX object CMakeFiles/mcx_ros__rosidl_typesupport_c.dir/rosidl_typesupport_c/mcx_ros/srv/move_srv__type_support.cpp.o[0m
+[2.509s] [ 54%] [32m[1mLinking C shared library libmcx_ros__rosidl_typesupport_introspection_c.so[0m
+[2.537s] [ 54%] Built target mcx_ros__rosidl_typesupport_introspection_c
+[2.546s] [ 58%] [32m[1mLinking CXX shared library libmcx_ros__rosidl_typesupport_c.so[0m
+[2.583s] [ 61%] [32m[1mLinking CXX shared library libmcx_ros__rosidl_typesupport_cpp.so[0m
+[2.585s] [ 61%] Built target mcx_ros__rosidl_typesupport_c
+[2.627s] [ 61%] Built target mcx_ros__rosidl_typesupport_cpp
+[2.746s] [ 64%] [32m[1mLinking CXX shared library libmcx_ros__rosidl_typesupport_fastrtps_c.so[0m
+[2.803s] [ 67%] Built target mcx_ros__rosidl_typesupport_fastrtps_c
+[2.803s] [ 67%] [32m[1mLinking CXX shared library libmcx_ros__rosidl_typesupport_fastrtps_cpp.so[0m
+[2.832s] [ 70%] [32m[1mLinking CXX shared library libmcx_ros__rosidl_typesupport_introspection_cpp.so[0m
+[2.863s] [ 70%] Built target mcx_ros__rosidl_typesupport_fastrtps_cpp
+[2.903s] [ 70%] Built target mcx_ros__rosidl_typesupport_introspection_cpp
+[2.919s] [ 70%] Built target mcx_ros
+[2.931s] [ 74%] [34m[1mGenerating Python code for ROS interfaces[0m
+[3.229s] [ 74%] Built target mcx_ros__py
+[3.241s] [ 77%] [32mBuilding C object CMakeFiles/mcx_ros__rosidl_generator_py.dir/rosidl_generator_py/mcx_ros/srv/_move_srv_s.c.o[0m
+[3.389s] [ 80%] [32m[1mLinking C shared library rosidl_generator_py/mcx_ros/libmcx_ros__rosidl_generator_py.so[0m
+[3.419s] [ 80%] Built target mcx_ros__rosidl_generator_py
+[3.434s] [ 83%] [32mBuilding C object CMakeFiles/mcx_ros__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/mcx_ros/_mcx_ros_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[3.435s] [ 87%] [32mBuilding C object CMakeFiles/mcx_ros__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/mcx_ros/_mcx_ros_s.ep.rosidl_typesupport_c.c.o[0m
+[3.436s] [ 90%] [32mBuilding C object CMakeFiles/mcx_ros__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/mcx_ros/_mcx_ros_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[3.535s] [ 93%] [32m[1mLinking C shared library rosidl_generator_py/mcx_ros/mcx_ros_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[3.543s] [ 96%] [32m[1mLinking C shared library rosidl_generator_py/mcx_ros/mcx_ros_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[3.559s] [100%] [32m[1mLinking C shared library rosidl_generator_py/mcx_ros/mcx_ros_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[3.564s] [100%] Built target mcx_ros__rosidl_typesupport_fastrtps_c__pyext
+[3.573s] [100%] Built target mcx_ros__rosidl_typesupport_introspection_c__pyext
+[3.580s] [100%] Built target mcx_ros__rosidl_typesupport_c__pyext
+[3.588s] Invoked command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --build /home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros -- -j8 -l8
+[3.634s] Invoking command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --install /home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros
+[3.639s] -- Install configuration: ""
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/license
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/license/mcx.cert.pem
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/mcx_ros/client.py
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/mcx_ros/ros2api.py
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/mcx_ros/__init__.py
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/mcx_ros/motion_program.py
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/mcx_ros/robot_command.py
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/mcx_ros/motionSL_pb2.py
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/mcx_ros/system_defs.py
+[3.639s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/mcx_ros/motionSL_hash.json
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/ament_index/resource_index/rosidl_interfaces/mcx_ros
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/msg
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/msg/rosidl_generator_c__visibility_control.h
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/move_srv.h
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__struct.h
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__type_support.h
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__functions.c
+[3.640s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__functions.h
+[3.641s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/environment/library_path.sh
+[3.641s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/environment/library_path.dsv
+[3.641s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_generator_c.so
+[3.641s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_generator_c.so" to ""
+[3.641s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros
+[3.641s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/msg
+[3.641s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[3.641s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv
+[3.641s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail
+[3.641s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__rosidl_typesupport_fastrtps_c.h
+[3.642s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_fastrtps_c.so
+[3.642s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_fastrtps_c.so" to ""
+[3.642s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros
+[3.642s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv
+[3.642s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail
+[3.642s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__builder.hpp
+[3.642s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__struct.hpp
+[3.642s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__traits.hpp
+[3.642s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/move_srv.hpp
+[3.642s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros
+[3.642s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/msg
+[3.642s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[3.642s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv
+[3.642s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail
+[3.643s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__rosidl_typesupport_fastrtps_cpp.hpp
+[3.643s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/dds_fastrtps
+[3.643s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_fastrtps_cpp.so
+[3.643s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_fastrtps_cpp.so" to ""
+[3.643s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros
+[3.643s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/msg
+[3.643s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[3.643s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv
+[3.643s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail
+[3.643s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__type_support.c
+[3.643s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__rosidl_typesupport_introspection_c.h
+[3.643s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_introspection_c.so
+[3.643s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_introspection_c.so" to ""
+[3.643s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_c.so
+[3.644s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_c.so" to ""
+[3.644s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros
+[3.644s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv
+[3.644s] -- Up-to-date: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail
+[3.644s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__rosidl_typesupport_introspection_cpp.hpp
+[3.644s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/include/mcx_ros/mcx_ros/srv/detail/move_srv__type_support.cpp
+[3.644s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_introspection_cpp.so
+[3.644s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_introspection_cpp.so" to ""
+[3.644s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_cpp.so
+[3.644s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_typesupport_cpp.so" to ""
+[3.644s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/environment/pythonpath.sh
+[3.644s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/environment/pythonpath.dsv
+[3.644s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros-0.0.0-py3.10.egg-info
+[3.644s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros-0.0.0-py3.10.egg-info/SOURCES.txt
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros-0.0.0-py3.10.egg-info/dependency_links.txt
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros-0.0.0-py3.10.egg-info/PKG-INFO
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros-0.0.0-py3.10.egg-info/top_level.txt
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/libmcx_ros__rosidl_generator_py.so
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/mcx_ros_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/_mcx_ros_s.ep.rosidl_typesupport_fastrtps_c.c
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/__init__.py
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/_mcx_ros_s.ep.rosidl_typesupport_introspection_c.c
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/_mcx_ros_s.ep.rosidl_typesupport_c.c
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/mcx_ros_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/mcx_ros_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/srv
+[3.645s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/srv/__init__.py
+[3.646s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/srv/_move_srv.py
+[3.646s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/srv/_move_srv_s.c
+[3.672s] Listing '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros'...
+[3.673s] Compiling '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/__init__.py'...
+[3.673s] Listing '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/srv'...
+[3.673s] Compiling '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/srv/__init__.py'...
+[3.673s] Compiling '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/srv/_move_srv.py'...
+[3.677s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/mcx_ros_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[3.677s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/mcx_ros_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[3.677s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/mcx_ros_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[3.677s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/mcx_ros_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[3.677s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/mcx_ros_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[3.677s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/local/lib/python3.10/dist-packages/mcx_ros/mcx_ros_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[3.677s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_generator_py.so
+[3.678s] -- Set runtime path of "/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/libmcx_ros__rosidl_generator_py.so" to ""
+[3.678s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/srv/MoveSrv.idl
+[3.678s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/srv/MoveSrv.srv
+[3.678s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/srv/MoveSrv_Request.msg
+[3.678s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/srv/MoveSrv_Response.msg
+[3.678s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/ament_index/resource_index/package_run_dependencies/mcx_ros
+[3.678s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/ament_index/resource_index/parent_prefix_path/mcx_ros
+[3.678s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/environment/ament_prefix_path.sh
+[3.678s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/environment/ament_prefix_path.dsv
+[3.678s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/environment/path.sh
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/environment/path.dsv
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/local_setup.bash
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/local_setup.sh
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/local_setup.zsh
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/local_setup.dsv
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.dsv
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/ament_index/resource_index/packages/mcx_ros
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/export_mcx_ros__rosidl_generator_cExport.cmake
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/export_mcx_ros__rosidl_generator_cExport-noconfig.cmake
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/export_mcx_ros__rosidl_typesupport_fastrtps_cExport.cmake
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/export_mcx_ros__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[3.679s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/export_mcx_ros__rosidl_generator_cppExport.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/export_mcx_ros__rosidl_typesupport_fastrtps_cppExport.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/export_mcx_ros__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_ros__rosidl_typesupport_introspection_cExport.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_ros__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_ros__rosidl_typesupport_cExport.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_ros__rosidl_typesupport_cExport-noconfig.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_ros__rosidl_typesupport_introspection_cppExport.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_ros__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_ros__rosidl_typesupport_cppExport.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_ros__rosidl_typesupport_cppExport-noconfig.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/export_mcx_ros__rosidl_generator_pyExport.cmake
+[3.680s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/export_mcx_ros__rosidl_generator_pyExport-noconfig.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/rosidl_cmake-extras.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/ament_cmake_export_include_directories-extras.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/ament_cmake_export_libraries-extras.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/ament_cmake_export_targets-extras.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/ament_cmake_export_dependencies-extras.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_rosConfig.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/cmake/mcx_rosConfig-version.cmake
+[3.681s] -- Installing: /home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.xml
+[3.684s] Invoked command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --install /home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros

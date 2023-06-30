@@ -28,7 +28,8 @@ setup(
         'console_scripts': [
             'paint_wall = paint_lidar.paint_wall:main',
             'cliente = paint_lidar.servece_send:main',
-            'cliente_copy = paint_lidar.servece_send_copy:main',
+            'fibonacci_action_client = paint_lidar.servece_send_copy:main',
+            'fibonacci_action_service = paint_lidar.action_service:main',
         ],
     },
 )

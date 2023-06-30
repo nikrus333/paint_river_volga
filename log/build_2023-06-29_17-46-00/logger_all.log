@@ -1,0 +1,348 @@
+[0.230s] [34mcolcon[0m [1;30mDEBUG[0m [32mCommand line arguments: ['/usr/bin/colcon', 'build'][0m
+[0.230s] [34mcolcon[0m [1;30mDEBUG[0m [32mParsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f2124dd6050>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f212563c550>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f212563c550>>)[0m
+[0.244s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) check parameters
+[0.244s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) check parameters
+[0.244s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) check parameters
+[0.244s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) check parameters
+[0.244s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) discover
+[0.244s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) discover
+[0.244s] [34mcolcon.colcon_core.package_discovery[0m [1;30mINFO[0m Crawling recursively for packages in '/home/nik/ros2_ws/src/paint_river_volga'
+[0.244s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.244s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore'
+[0.244s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore_ament_install'
+[0.244s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_pkg']
+[0.244s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_pkg'
+[0.244s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_meta']
+[0.244s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_meta'
+[0.244s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ros']
+[0.244s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ros'
+[0.251s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['cmake', 'python']
+[0.251s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'cmake'
+[0.251s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python'
+[0.251s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['python_setup_py']
+[0.251s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python_setup_py'
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extension 'ignore'
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) ignored
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(example_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(example_interfaces) by extension 'ignore'
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(example_interfaces) by extension 'ignore_ament_install'
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(example_interfaces) by extensions ['colcon_pkg']
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(example_interfaces) by extension 'colcon_pkg'
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(example_interfaces) by extensions ['colcon_meta']
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(example_interfaces) by extension 'colcon_meta'
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(example_interfaces) by extensions ['ros']
+[0.252s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(example_interfaces) by extension 'ros'
+[0.253s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'example_interfaces' with type 'ros.ament_cmake' and name 'example_interfaces'[0m
+[0.253s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extensions ['ignore', 'ignore_ament_install']
+[0.253s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extension 'ignore'
+[0.253s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extension 'ignore_ament_install'
+[0.253s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extensions ['colcon_pkg']
+[0.253s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extension 'colcon_pkg'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extensions ['colcon_meta']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extension 'colcon_meta'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extensions ['ros']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extension 'ros'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extensions ['cmake', 'python']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extension 'cmake'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extension 'python'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extensions ['python_setup_py']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info) by extension 'python_setup_py'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extensions ['ignore', 'ignore_ament_install']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extension 'ignore'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extension 'ignore_ament_install'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extensions ['colcon_pkg']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extension 'colcon_pkg'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extensions ['colcon_meta']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extension 'colcon_meta'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extensions ['ros']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extension 'ros'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extensions ['cmake', 'python']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extension 'cmake'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extension 'python'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extensions ['python_setup_py']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(git_info/images) by extension 'python_setup_py'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(global_way) by extensions ['ignore', 'ignore_ament_install']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(global_way) by extension 'ignore'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(global_way) by extension 'ignore_ament_install'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(global_way) by extensions ['colcon_pkg']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(global_way) by extension 'colcon_pkg'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(global_way) by extensions ['colcon_meta']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(global_way) by extension 'colcon_meta'
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(global_way) by extensions ['ros']
+[0.254s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(global_way) by extension 'ros'
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'global_way' with type 'ros.ament_python' and name 'global_way'[0m
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extension 'ignore'
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) ignored
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extension 'ignore'
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) ignored
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(mcx_ros) by extensions ['ignore', 'ignore_ament_install']
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(mcx_ros) by extension 'ignore'
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(mcx_ros) by extension 'ignore_ament_install'
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(mcx_ros) by extensions ['colcon_pkg']
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(mcx_ros) by extension 'colcon_pkg'
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(mcx_ros) by extensions ['colcon_meta']
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(mcx_ros) by extension 'colcon_meta'
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(mcx_ros) by extensions ['ros']
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(mcx_ros) by extension 'ros'
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'mcx_ros' with type 'ros.ament_cmake' and name 'mcx_ros'[0m
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(paint_lidar) by extensions ['ignore', 'ignore_ament_install']
+[0.255s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(paint_lidar) by extension 'ignore'
+[0.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(paint_lidar) by extension 'ignore_ament_install'
+[0.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(paint_lidar) by extensions ['colcon_pkg']
+[0.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(paint_lidar) by extension 'colcon_pkg'
+[0.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(paint_lidar) by extensions ['colcon_meta']
+[0.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(paint_lidar) by extension 'colcon_meta'
+[0.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(paint_lidar) by extensions ['ros']
+[0.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(paint_lidar) by extension 'ros'
+[0.256s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'paint_lidar' with type 'ros.ament_python' and name 'paint_lidar'[0m
+[0.256s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) using defaults
+[0.256s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) discover
+[0.256s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) using defaults
+[0.256s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) discover
+[0.256s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) using defaults
+[0.268s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) check parameters
+[0.268s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) discover
+[0.270s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 6 installed packages in /home/nik/ros2_ws/install[0m
+[0.272s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 351 installed packages in /opt/ros/humble[0m
+[0.273s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) using defaults
+[0.310s] [34mcolcon.colcon_core.package_selection[0m [1;30mWARNING[0m [33mSome selected packages are already built in one or more underlay workspaces:
+	'example_interfaces' is in: /home/nik/ros2_ws/install/example_interfaces, /opt/ros/humble
+If a package in a merged underlay workspace is overridden and it installs headers, then all packages in the overlay must sort their include directories by workspace order. Failure to do so may result in build failures or undefined behavior at run time.
+If the overridden package is used by another package in any underlay, then the overriding package in the overlay must be API and ABI compatible or undefined behavior at run time may occur.
+
+If you understand the risks and want to override a package anyways, add the following to the command line:
+	--allow-overriding example_interfaces
+
+This may be promoted to an error in a future release of colcon-override-check.[0m
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'example_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'example_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'example_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'example_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'example_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'example_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'example_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'example_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'example_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.312s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'example_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces', 'merge_install': False, 'path': '/home/nik/ros2_ws/src/paint_river_volga/example_interfaces', 'symlink_install': False, 'test_result_base': None}[0m
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'global_way' build argument 'cmake_args' from command line to 'None'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'global_way' build argument 'cmake_target' from command line to 'None'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'global_way' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'global_way' build argument 'cmake_clean_cache' from command line to 'False'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'global_way' build argument 'cmake_clean_first' from command line to 'False'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'global_way' build argument 'cmake_force_configure' from command line to 'False'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'global_way' build argument 'ament_cmake_args' from command line to 'None'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'global_way' build argument 'catkin_cmake_args' from command line to 'None'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'global_way' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'global_way' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/nik/ros2_ws/src/paint_river_volga/build/global_way', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/nik/ros2_ws/src/paint_river_volga/install/global_way', 'merge_install': False, 'path': '/home/nik/ros2_ws/src/paint_river_volga/global_way', 'symlink_install': False, 'test_result_base': None}[0m
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'mcx_ros' build argument 'cmake_args' from command line to 'None'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'mcx_ros' build argument 'cmake_target' from command line to 'None'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'mcx_ros' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'mcx_ros' build argument 'cmake_clean_cache' from command line to 'False'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'mcx_ros' build argument 'cmake_clean_first' from command line to 'False'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'mcx_ros' build argument 'cmake_force_configure' from command line to 'False'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'mcx_ros' build argument 'ament_cmake_args' from command line to 'None'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'mcx_ros' build argument 'catkin_cmake_args' from command line to 'None'
+[0.313s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'mcx_ros' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'mcx_ros' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros', 'merge_install': False, 'path': '/home/nik/ros2_ws/src/paint_river_volga/mcx_ros', 'symlink_install': False, 'test_result_base': None}[0m
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'paint_lidar' build argument 'cmake_args' from command line to 'None'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'paint_lidar' build argument 'cmake_target' from command line to 'None'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'paint_lidar' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'paint_lidar' build argument 'cmake_clean_cache' from command line to 'False'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'paint_lidar' build argument 'cmake_clean_first' from command line to 'False'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'paint_lidar' build argument 'cmake_force_configure' from command line to 'False'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'paint_lidar' build argument 'ament_cmake_args' from command line to 'None'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'paint_lidar' build argument 'catkin_cmake_args' from command line to 'None'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'paint_lidar' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.314s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'paint_lidar' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar', 'merge_install': False, 'path': '/home/nik/ros2_ws/src/paint_river_volga/paint_lidar', 'symlink_install': False, 'test_result_base': None}[0m
+[0.315s] [34mcolcon.colcon_core.executor[0m [1;30mINFO[0m Executing jobs using 'parallel' executor
+[0.318s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete[0m
+[0.319s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/nik/ros2_ws/src/paint_river_volga/example_interfaces' with build type 'ament_cmake'
+[0.319s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/nik/ros2_ws/src/paint_river_volga/example_interfaces'
+[0.323s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.323s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.323s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[0.327s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/nik/ros2_ws/src/paint_river_volga/global_way' with build type 'ament_python'
+[0.327s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('global_way', 'ament_prefix_path')
+[0.328s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/hook/ament_prefix_path.ps1'
+[0.329s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/hook/ament_prefix_path.dsv'
+[0.329s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/hook/ament_prefix_path.sh'
+[0.331s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.331s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[0.336s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/nik/ros2_ws/src/paint_river_volga/mcx_ros' with build type 'ament_cmake'
+[0.336s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/nik/ros2_ws/src/paint_river_volga/mcx_ros'
+[0.337s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.337s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[0.340s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/nik/ros2_ws/src/paint_river_volga/paint_lidar' with build type 'ament_python'
+[0.341s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('paint_lidar', 'ament_prefix_path')
+[0.341s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/hook/ament_prefix_path.ps1'
+[0.342s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/hook/ament_prefix_path.dsv'
+[0.342s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/hook/ament_prefix_path.sh'
+[0.343s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.343s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[0.351s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake /home/nik/ros2_ws/src/paint_river_volga/example_interfaces -DCMAKE_INSTALL_PREFIX=/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces[0m
+[0.578s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/nik/ros2_ws/src/paint_river_volga/global_way'
+[0.579s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.579s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[0.587s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake /home/nik/ros2_ws/src/paint_river_volga/mcx_ros -DCMAKE_INSTALL_PREFIX=/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros[0m
+[0.803s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/nik/ros2_ws/src/paint_river_volga/paint_lidar'
+[0.804s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.804s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[1.219s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/nik/ros2_ws/src/paint_river_volga/paint_lidar': PYTHONPATH=/home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/prefix_override:/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/paint_lidar build --build-base /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build install --record /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/install.log --single-version-externally-managed[0m
+[1.243s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/nik/ros2_ws/src/paint_river_volga/global_way': PYTHONPATH=/home/nik/ros2_ws/src/paint_river_volga/build/global_way/prefix_override:/home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/global_way build --build-base /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build install --record /home/nik/ros2_ws/src/paint_river_volga/build/global_way/install.log --single-version-externally-managed[0m
+[1.522s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/nik/ros2_ws/src/paint_river_volga/global_way' returned '0': PYTHONPATH=/home/nik/ros2_ws/src/paint_river_volga/build/global_way/prefix_override:/home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/global_way build --build-base /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build install --record /home/nik/ros2_ws/src/paint_river_volga/build/global_way/install.log --single-version-externally-managed[0m
+[1.526s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/global_way' for CMake module files
+[1.527s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/global_way' for CMake config files
+[1.529s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib'
+[1.530s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/bin'
+[1.530s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/pkgconfig/global_way.pc'
+[1.530s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages'
+[1.530s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('global_way', 'pythonpath')
+[1.532s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/hook/pythonpath.ps1'
+[1.532s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/hook/pythonpath.dsv'
+[1.533s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/hook/pythonpath.sh'
+[1.533s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/bin'
+[1.533s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(global_way)
+[1.535s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/package.ps1'
+[1.536s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/package.dsv'
+[1.537s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/package.sh'
+[1.537s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/package.bash'
+[1.538s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way/package.zsh'
+[1.539s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/colcon-core/packages/global_way)
+[1.557s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar' for CMake module files
+[1.557s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/nik/ros2_ws/src/paint_river_volga/paint_lidar' returned '0': PYTHONPATH=/home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/prefix_override:/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/paint_lidar build --build-base /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build install --record /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/install.log --single-version-externally-managed[0m
+[1.558s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar' for CMake config files
+[1.558s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib'
+[1.558s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/bin'
+[1.558s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/pkgconfig/paint_lidar.pc'
+[1.558s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages'
+[1.558s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('paint_lidar', 'pythonpath')
+[1.560s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/hook/pythonpath.ps1'
+[1.560s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/hook/pythonpath.dsv'
+[1.560s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/hook/pythonpath.sh'
+[1.561s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/bin'
+[1.561s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(paint_lidar)
+[1.562s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/package.ps1'
+[1.562s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/package.dsv'
+[1.563s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/package.sh'
+[1.563s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/package.bash'
+[1.563s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar/package.zsh'
+[1.563s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/colcon-core/packages/paint_lidar)
+[1.887s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake /home/nik/ros2_ws/src/paint_river_volga/mcx_ros -DCMAKE_INSTALL_PREFIX=/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros[0m
+[1.888s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --build /home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros -- -j8 -l8[0m
+[2.037s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake /home/nik/ros2_ws/src/paint_river_volga/example_interfaces -DCMAKE_INSTALL_PREFIX=/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces[0m
+[2.037s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --build /home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces -- -j8 -l8[0m
+[3.924s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --build /home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros -- -j8 -l8[0m
+[3.970s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --install /home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros[0m
+[4.018s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(mcx_ros)
+[4.020s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros' for CMake module files
+[4.020s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --install /home/nik/ros2_ws/src/paint_river_volga/build/mcx_ros[0m
+[4.020s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros' for CMake config files
+[4.021s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('mcx_ros', 'cmake_prefix_path')
+[4.022s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/cmake_prefix_path.ps1'
+[4.022s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/cmake_prefix_path.dsv'
+[4.022s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/cmake_prefix_path.sh'
+[4.022s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib'
+[4.022s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('mcx_ros', 'ld_library_path_lib')
+[4.023s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/ld_library_path_lib.ps1'
+[4.023s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/ld_library_path_lib.dsv'
+[4.023s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/ld_library_path_lib.sh'
+[4.024s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/bin'
+[4.024s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/pkgconfig/mcx_ros.pc'
+[4.024s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/python3.10/site-packages'
+[4.024s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/bin'
+[4.025s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.ps1'
+[4.025s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.dsv'
+[4.025s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.sh'
+[4.025s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.bash'
+[4.026s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.zsh'
+[4.026s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/colcon-core/packages/mcx_ros)
+[4.065s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(mcx_ros)
+[4.067s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros' for CMake module files
+[4.068s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros' for CMake config files
+[4.069s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('mcx_ros', 'cmake_prefix_path')
+[4.070s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/cmake_prefix_path.ps1'
+[4.070s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/cmake_prefix_path.dsv'
+[4.071s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/cmake_prefix_path.sh'
+[4.071s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib'
+[4.071s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('mcx_ros', 'ld_library_path_lib')
+[4.073s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/ld_library_path_lib.ps1'
+[4.073s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/ld_library_path_lib.dsv'
+[4.073s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/hook/ld_library_path_lib.sh'
+[4.073s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/bin'
+[4.074s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/pkgconfig/mcx_ros.pc'
+[4.074s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/lib/python3.10/site-packages'
+[4.074s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/bin'
+[4.075s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.ps1'
+[4.076s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.dsv'
+[4.076s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.sh'
+[4.077s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.bash'
+[4.077s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/mcx_ros/package.zsh'
+[4.077s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/nik/ros2_ws/src/paint_river_volga/install/mcx_ros/share/colcon-core/packages/mcx_ros)
+[20.127s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --build /home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces -- -j8 -l8[0m
+[20.489s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --install /home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces[0m
+[20.610s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(example_interfaces)
+[20.612s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces' for CMake module files
+[20.612s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/nik/ros2_ws/install/paint_lidar:/home/nik/ros2_ws/install/global_way:/home/nik/ros2_ws/install/chicar:/opt/ros/humble /usr/bin/cmake --install /home/nik/ros2_ws/src/paint_river_volga/build/example_interfaces[0m
+[20.612s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces' for CMake config files
+[20.612s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('example_interfaces', 'cmake_prefix_path')
+[20.613s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/cmake_prefix_path.ps1'
+[20.614s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/cmake_prefix_path.dsv'
+[20.614s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/cmake_prefix_path.sh'
+[20.614s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/lib'
+[20.614s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('example_interfaces', 'ld_library_path_lib')
+[20.615s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/ld_library_path_lib.ps1'
+[20.615s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/ld_library_path_lib.dsv'
+[20.615s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/ld_library_path_lib.sh'
+[20.615s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/bin'
+[20.615s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/lib/pkgconfig/example_interfaces.pc'
+[20.616s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/lib/python3.10/site-packages'
+[20.616s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/bin'
+[20.616s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.ps1'
+[20.617s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.dsv'
+[20.617s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.sh'
+[20.617s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.bash'
+[20.617s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.zsh'
+[20.617s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/colcon-core/packages/example_interfaces)
+[20.971s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(example_interfaces)
+[20.973s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces' for CMake module files
+[20.974s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces' for CMake config files
+[20.975s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('example_interfaces', 'cmake_prefix_path')
+[20.976s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/cmake_prefix_path.ps1'
+[20.976s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/cmake_prefix_path.dsv'
+[20.976s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/cmake_prefix_path.sh'
+[20.977s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/lib'
+[20.977s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('example_interfaces', 'ld_library_path_lib')
+[20.978s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/ld_library_path_lib.ps1'
+[20.978s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/ld_library_path_lib.dsv'
+[20.978s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/hook/ld_library_path_lib.sh'
+[20.978s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/bin'
+[20.979s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/lib/pkgconfig/example_interfaces.pc'
+[20.979s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/lib/python3.10/site-packages'
+[20.979s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/bin'
+[20.980s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.ps1'
+[20.980s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.dsv'
+[20.980s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.sh'
+[20.980s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.bash'
+[20.981s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/example_interfaces/package.zsh'
+[20.981s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/nik/ros2_ws/src/paint_river_volga/install/example_interfaces/share/colcon-core/packages/example_interfaces)
+[20.981s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mclosing loop[0m
+[20.981s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mloop closed[0m
+[20.981s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete finished with '0'[0m
+[20.981s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoining thread[0m
+[20.986s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[20.986s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[20.986s] [34mcolcon.colcon_notification.desktop_notification[0m [1;30mINFO[0m Sending desktop notification using 'notify2'
+[20.998s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoined thread[0m
+[21.000s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/nik/ros2_ws/src/paint_river_volga/install/local_setup.ps1'
+[21.001s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/nik/ros2_ws/src/paint_river_volga/install/_local_setup_util_ps1.py'
+[21.002s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/nik/ros2_ws/src/paint_river_volga/install/setup.ps1'
+[21.003s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/nik/ros2_ws/src/paint_river_volga/install/local_setup.sh'
+[21.003s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/nik/ros2_ws/src/paint_river_volga/install/_local_setup_util_sh.py'
+[21.003s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/nik/ros2_ws/src/paint_river_volga/install/setup.sh'
+[21.004s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/nik/ros2_ws/src/paint_river_volga/install/local_setup.bash'
+[21.005s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/nik/ros2_ws/src/paint_river_volga/install/setup.bash'
+[21.006s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/nik/ros2_ws/src/paint_river_volga/install/local_setup.zsh'
+[21.006s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/nik/ros2_ws/src/paint_river_volga/install/setup.zsh'

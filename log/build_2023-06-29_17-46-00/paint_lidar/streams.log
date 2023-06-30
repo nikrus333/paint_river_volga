@@ -1,0 +1,80 @@
+[0.877s] Invoking command in '/home/nik/ros2_ws/src/paint_river_volga/paint_lidar': PYTHONPATH=/home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/prefix_override:/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/paint_lidar build --build-base /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build install --record /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/install.log --single-version-externally-managed
+[1.137s] WARNING: '/home/nik/ros2_ws/src/paint_river_volga/mcx_ros/libs' not a valid package name; please use only .-separated package names in setup.py
+[1.145s] running egg_info
+[1.145s] creating ../build/paint_lidar/paint_lidar.egg-info
+[1.152s] writing ../build/paint_lidar/paint_lidar.egg-info/PKG-INFO
+[1.152s] writing dependency_links to ../build/paint_lidar/paint_lidar.egg-info/dependency_links.txt
+[1.152s] writing entry points to ../build/paint_lidar/paint_lidar.egg-info/entry_points.txt
+[1.152s] writing requirements to ../build/paint_lidar/paint_lidar.egg-info/requires.txt
+[1.152s] writing top-level names to ../build/paint_lidar/paint_lidar.egg-info/top_level.txt
+[1.152s] writing manifest file '../build/paint_lidar/paint_lidar.egg-info/SOURCES.txt'
+[1.154s] package init file 'paint_lidar/__init__.py' not found (or not a regular file)
+[1.155s] reading manifest file '../build/paint_lidar/paint_lidar.egg-info/SOURCES.txt'
+[1.156s] writing manifest file '../build/paint_lidar/paint_lidar.egg-info/SOURCES.txt'
+[1.156s] running build
+[1.156s] running build_py
+[1.156s] creating /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build
+[1.156s] creating /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib
+[1.156s] creating /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar
+[1.156s] copying paint_lidar/action_service.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar
+[1.156s] copying paint_lidar/servece_send_copy.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar
+[1.156s] copying paint_lidar/paint_wall.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar
+[1.156s] copying paint_lidar/servece_send.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar
+[1.156s] creating /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils
+[1.156s] copying paint_lidar/lidar_utils/__init__.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils
+[1.157s] copying paint_lidar/lidar_utils/test_driver_laser.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils
+[1.157s] copying paint_lidar/lidar_utils/robot_move.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils
+[1.157s] creating /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/utils
+[1.157s] copying paint_lidar/lidar_utils/utils/__init__.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/utils
+[1.157s] copying paint_lidar/lidar_utils/utils/hokuyo.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/utils
+[1.157s] copying paint_lidar/lidar_utils/utils/serial_ports.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/utils
+[1.157s] creating /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/manip_utils
+[1.157s] copying paint_lidar/manip_utils/manip_send.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/manip_utils
+[1.157s] copying paint_lidar/manip_utils/__init__.py -> /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/manip_utils
+[1.158s] running install
+[1.158s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.158s]   warnings.warn(
+[1.159s] running install_lib
+[1.159s] creating /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar
+[1.160s] creating /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/manip_utils
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/manip_utils/manip_send.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/manip_utils
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/manip_utils/__init__.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/manip_utils
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/action_service.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/servece_send_copy.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar
+[1.160s] creating /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/__init__.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils
+[1.160s] creating /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/utils
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/utils/__init__.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/utils
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/utils/hokuyo.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/utils
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/utils/serial_ports.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/utils
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/test_driver_laser.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils
+[1.160s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/lidar_utils/robot_move.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils
+[1.161s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/paint_wall.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar
+[1.161s] copying /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build/lib/paint_lidar/servece_send.py -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar
+[1.161s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/manip_utils/manip_send.py to manip_send.cpython-310.pyc
+[1.161s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/manip_utils/__init__.py to __init__.cpython-310.pyc
+[1.161s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/action_service.py to action_service.cpython-310.pyc
+[1.162s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/servece_send_copy.py to servece_send_copy.cpython-310.pyc
+[1.162s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/__init__.py to __init__.cpython-310.pyc
+[1.162s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/utils/__init__.py to __init__.cpython-310.pyc
+[1.162s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/utils/hokuyo.py to hokuyo.cpython-310.pyc
+[1.164s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/utils/serial_ports.py to serial_ports.cpython-310.pyc
+[1.164s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/test_driver_laser.py to test_driver_laser.cpython-310.pyc
+[1.166s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/lidar_utils/robot_move.py to robot_move.cpython-310.pyc
+[1.167s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/paint_wall.py to paint_wall.cpython-310.pyc
+[1.168s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar/servece_send.py to servece_send.cpython-310.pyc
+[1.168s] running install_data
+[1.169s] creating /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/ament_index
+[1.169s] creating /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/ament_index/resource_index
+[1.169s] creating /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/ament_index/resource_index/packages
+[1.169s] copying resource/paint_lidar -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/ament_index/resource_index/packages
+[1.169s] copying package.xml -> /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/share/paint_lidar
+[1.169s] running install_egg_info
+[1.171s] Copying ../build/paint_lidar/paint_lidar.egg-info to /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages/paint_lidar-0.0.0-py3.10.egg-info
+[1.171s] running install_scripts
+[1.186s] Installing cliente script to /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/paint_lidar
+[1.186s] Installing fibonacci_action_client script to /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/paint_lidar
+[1.186s] Installing fibonacci_action_service script to /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/paint_lidar
+[1.186s] Installing paint_wall script to /home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/paint_lidar
+[1.187s] writing list of installed files to '/home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/install.log'
+[1.216s] Invoked command in '/home/nik/ros2_ws/src/paint_river_volga/paint_lidar' returned '0': PYTHONPATH=/home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/prefix_override:/home/nik/ros2_ws/src/paint_river_volga/install/paint_lidar/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/paint_lidar build --build-base /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/build install --record /home/nik/ros2_ws/src/paint_river_volga/build/paint_lidar/install.log --single-version-externally-managed

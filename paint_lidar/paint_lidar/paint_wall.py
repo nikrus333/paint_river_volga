@@ -3,18 +3,28 @@ from threading import Event
 
 from example_interfaces.srv import AddTwoInts
 from example_interfaces.srv import SetBool
+from example_interfaces.action import ExecuteTrajectory
 import motorcortex
 import rclpy
 from rclpy.node import Node
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor, SingleThreadedExecutor
+from rclpy.action import ActionClient
+from action_tutorials_interfaces.action import Fibonacci
+from rclpy.callback_groups import ReentrantCallbackGroup, MutuallyExclusiveCallbackGroup
+from rclpy.executors import MultiThreadedExecutor
+from geometry_msgs.msg import Pose
+
 
 import open3d as o3d
 import numpy as np
 import os
 import random
 import math
+from threading import Event
 from ament_index_python.packages import get_package_share_directory
+from scipy.spatial.transform import Rotation as R
+
 from .lidar_utils import test_driver_laser
 
 
@@ -39,8 +49,6 @@ class ManipUse():
             self.subscription.get()
             
         except Exception as e:
-            
-        
             return
         self.robot = RobotCommand(self.req, self.motorcortex_types)
         self.robot.reset()
@@ -53,158 +61,146 @@ class ServiceFromService(Node):
         super().__init__('action_from_service')
         self.robot = ManipUse()
         self.service_done_event = Event()
-
+        
         self.callback_group = ReentrantCallbackGroup()
-
-        self.client = self.create_client(
-            SetBool,
-            '/point',
-            callback_group=self.callback_group
-        )
-
-        self.srv = self.create_service(
-            SetBool,
-            'add_two_ints_proxy',
-            self.add_two_ints_proxy_callback,
-            callback_group=self.callback_group
-            )
-
+        self._action_client = ActionClient(self, ExecuteTrajectory, 'fibonacci', callback_group=self.callback_group)
+    
         self.srv = self.create_service(
             SetBool,
             '/point',
             self.add_two_ints_callback,
+            callback_group=self.callback_group
             )
+        #self.create_timer(1, self.feedback_callback, callback_group=self.callback_group)
 
-        
-    # вызывается при вызове сервиса 
-    # старт манипулятора и старт сканирования
+        self.status_manipulator = True
+
+        self.hok = test_driver_laser.HokuyoManipulator()
+        self.pcd = o3d.geometry.PointCloud()
+    # *optionally* add initial points
+        self.points = []
+        self.points.append([0.0, 0.0, 1.0])
+        self.points = np.array(self.points)
+        self.paint = test_driver_laser.PaintScanWall()
+
     def add_two_ints_callback(self, request, response):
         self.get_logger().info(' Сообщение Request received:')
-        hok = test_driver_laser.HokuyoManipulator()
-        self.get_logger().info('here')
-        pcd = o3d.geometry.PointCloud()
-    # *optionally* add initial points
-        points = np.random.rand(10, 3)
-        points = []
-        points.append([0.0, 0.0, 1.0])
-        points = np.array(points)
-        #pcd.points = o3d.utility.Vector3dVector(points)
-
-        # include it in the visualizer before non-blocking visualization.
-
-
-        # to add new points each dt secs.
         dt = 0.01
-        # number of points that will be added
-        n_new = 10
-
         previous_t = time.time()
 
         # run non-blocking visualization. 
         # To exit, press 'q' or click the 'x' of the window.
         debug = True
-        
-        paint = test_driver_laser.PaintScanWall()
-        #self.robot.mission_scan()
-        try:
-            if debug:
-                while True:
-                    if self.robot.robot.getState() != InterpreterStates.PROGRAM_IS_DONE.value:
-                        if time.time() - previous_t > dt:
-                            # Options (uncomment each to try them out):
-                            # 1) extend with ndarrays.
-                            params = self.robot.subscription.read()
-                            #print(params)
-                            value = params[0].value
-                            if value == [0, 0, 0, 0, 0, 0]:
-                                continue
-                            print(self.robot.robot.getState())
-                            print(value)
-                            trans, euler = value[:3], value[3:]
-                            #print(trans)
-                            trans_init, R = hok.coord_euler_to_matrix(trans, euler)
-                            #print(hok.trans_init)
-                            #print(trans_init)
-                            time.sleep(1)
-                            pcd = pcd + hok.read_laser(trans_init, R)
-
-
-                            previous_t = time.time()
-                            #print(pcd.points)
-                            #o3d.visualization.draw_geometries([pcd])
-                    else:
-                        break
-
-        except KeyboardInterrupt:
-            print('End process scan')
-            req.close()
-            sub.close()
-        finally:
-            o3d.visualization.draw_geometries([pcd])     
-            #o3d.io.write_point_cloud('src/paint_river_volga/paint_lidar/scan_obj/1.pcd', pcd) # save pcd data
-            pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
-            pcd_new = pcd
-            #o3d.visualization.draw_geometries([pcd_new])  
-
-            response.success = True
-            numpy_arr = paint.PCDToNumpy(pcd_new)
-            response.x_data, response.y_data, response.z_data = paint.convert_np_srv(numpy_arr)
-            return response
-
-
-
-
-            '''
-            next section for other node / to do create node for 
-            '''
-            
-            #o3d.visualization.draw_geometries([pcd_new , o3d.geometry.TriangleMesh.create_coordinate_frame()])
-            #o3d.visualization.draw_geometries([pcd_new])  
-            vis = o3d.visualization.VisualizerWithEditing()
-            vis.create_window()
-            vis.add_geometry(o3d.geometry.TriangleMesh.create_coordinate_frame())
-            vis.add_geometry(pcd_new)
-            
-            vis.run()
-            vis.destroy_window()
-            
-            #paint.calculate_traectories(pcd_new)
-            #paint.plane_segmentation(pcd_new)
-            plane_list = paint.DetectMultiPlanes(pcd_new, min_ratio=0.09, threshold=15, iterations=1000)
-            print(len(plane_list))
-            # выполняем операцию сканировния
-            # возращаем pointcloud
-            
-            self.get_logger().info('end')
-            
-
-    def add_two_ints_proxy_callback(self, request, response):
-        print('here2')
-        if not self.client.wait_for_service(timeout_sec=5.0):
-            self.get_logger().error('No action server available')
-            return response
-
-        self.service_done_event.clear()
-
         event=Event()
         def done_callback(future):
             nonlocal event
             event.set()
+        future = self.send_goal(10)
+        #self.robot.mission_scan()
+        try:
+            if debug:
+                while not self.status_manipulator:
+                            # Options (uncomment each to try them out):
+                            # 1) extend with ndarrays.
+                    previous_t = time.time()
+                            #print(pcd.points)
+                            #o3d.visualization.draw_geometries([pcd])
 
-        future = self.client.call_async(request)
-        future.add_done_callback(done_callback)
+        except KeyboardInterrupt:
+            print('End process scan')
+        finally:
+            pcd = self.pcd
+            o3d.visualization.draw_geometries([pcd])     
+            #o3d.io.write_point_cloud('src/paint_river_volga/paint_lidar/scan_obj/1.pcd', pcd) # save pcd data
+            pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
+            #pcd_new = pcd
+            #o3d.visualization.draw_geometries([pcd_new])  
 
-        # Wait for action to be done
-        # self.service_done_event.wait()
-        event.wait()
+            response.success = True
+            numpy_arr = self.paint.PCDToNumpy(pcd_new)
+            response.x_data, response.y_data, response.z_data = self.paint.convert_np_srv(numpy_arr)
+            self.pcd = o3d.geometry.PointCloud()
+    # *optionally* add initial points
+            self.points = []
+            self.points.append([0.0, 0.0, 1.0])
+            self.points = np.array(self.points)
+            return response
+  
+    def send_goal(self, order):
+        goal_msg = ExecuteTrajectory.Goal()
+        pi = math.pi
+        poses = []
 
-        return future.result()
+        pose1 = Pose()
+        pose2 = Pose()
+
+        pose1.position.x = 0.25
+        pose1.position.y = -0.7
+        pose1.position.z = 0.07
+        r1 = R.from_euler('zyx', [179.999 * pi / 180, 0.0027 * pi / 180, 179.999 * pi / 180])
+        x,y,z,w = r1.as_quat()
+
+        pose1.orientation.x = x
+        pose1.orientation.y = y
+        pose1.orientation.z = z
+        pose1.orientation.w = w
+        
+
+        pose2.position.x = -0.25
+        pose2.position.y = -0.7
+        pose2.position.z = 0.07
+
+
+        pose2.orientation.x = x
+        pose2.orientation.y = y
+        pose2.orientation.z = z
+        pose2.orientation.w = w
+
+        poses.append(pose1)
+        poses.append(pose2)
+        
+        goal_msg.poses = poses
+
+        goal_msg.acceleration = 0.1
+        goal_msg.velocity = 0.1
+        self._action_client.wait_for_server()
+        self._send_goal_future = self._action_client.send_goal_async(goal_msg, feedback_callback=self.feedback_callback)
+
+        self._send_goal_future.add_done_callback(self.goal_response_callback)
+    # вызывается при вызове сервиса 
+    # старт манипулятора и старт сканирования   
+    def feedback_callback(self, feedback_msg):
+        value = feedback_msg.feedback.robot_state
+        self.get_logger().info('feed : {0}'.format(value))
+        #params = self.robot.subscription.read()
+        #print(params
+        if value == [0, 0, 0, 0, 0, 0]:
+            return False
+        trans, euler = value[:3], value[3:]
+    
+        trans_init, R = self.hok.coord_euler_to_matrix(trans, euler)
+       
+        print(trans_init)
+        
+        self.pcd = self.pcd + self.hok.read_laser(trans_init, R)
+        
+
+    def goal_response_callback(self, future):
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            self.get_logger().info('Goal rejected :(')
+            return
+
+        self.get_logger().info('Goal accepted :)')
+
+        self._get_result_future = goal_handle.get_result_async()
+        self._get_result_future.add_done_callback(self.get_result_callback)
+        
 
     def get_result_callback(self, future):
-        # Signal that action is done
-        print('here1')
-        self.service_done_event.set()
-
+        result = future.result().result
+        self.get_logger().info('Result: {0}'.format(result.sequence))
+        self.status_manipulator = result
 
 def main(args=None):
     #manip = ManipUse()
@@ -213,8 +209,9 @@ def main(args=None):
     service_from_service = ServiceFromService()
 
     executor = MultiThreadedExecutor()
-    rclpy.spin(service_from_service, executor)
-
+    executor.add_node(service_from_service)
+    executor.spin()
+    #rclpy.spin(service_from_service, executor)
     rclpy.shutdown()
 
 

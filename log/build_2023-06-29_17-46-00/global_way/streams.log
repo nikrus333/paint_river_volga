@@ -1,0 +1,43 @@
+[0.916s] Invoking command in '/home/nik/ros2_ws/src/paint_river_volga/global_way': PYTHONPATH=/home/nik/ros2_ws/src/paint_river_volga/build/global_way/prefix_override:/home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/global_way build --build-base /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build install --record /home/nik/ros2_ws/src/paint_river_volga/build/global_way/install.log --single-version-externally-managed
+[1.143s] running egg_info
+[1.143s] creating ../build/global_way/global_way.egg-info
+[1.147s] writing ../build/global_way/global_way.egg-info/PKG-INFO
+[1.147s] writing dependency_links to ../build/global_way/global_way.egg-info/dependency_links.txt
+[1.147s] writing entry points to ../build/global_way/global_way.egg-info/entry_points.txt
+[1.147s] writing requirements to ../build/global_way/global_way.egg-info/requires.txt
+[1.148s] writing top-level names to ../build/global_way/global_way.egg-info/top_level.txt
+[1.148s] writing manifest file '../build/global_way/global_way.egg-info/SOURCES.txt'
+[1.149s] reading manifest file '../build/global_way/global_way.egg-info/SOURCES.txt'
+[1.150s] writing manifest file '../build/global_way/global_way.egg-info/SOURCES.txt'
+[1.150s] running build
+[1.150s] running build_py
+[1.150s] creating /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build
+[1.150s] creating /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build/lib
+[1.150s] creating /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build/lib/global_way
+[1.150s] copying global_way/select_position.py -> /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build/lib/global_way
+[1.150s] copying global_way/__init__.py -> /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build/lib/global_way
+[1.151s] copying global_way/tf_creator.py -> /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build/lib/global_way
+[1.151s] running install
+[1.151s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[1.151s]   warnings.warn(
+[1.151s] running install_lib
+[1.152s] creating /home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages/global_way
+[1.152s] copying /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build/lib/global_way/select_position.py -> /home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages/global_way
+[1.152s] copying /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build/lib/global_way/__init__.py -> /home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages/global_way
+[1.152s] copying /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build/lib/global_way/tf_creator.py -> /home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages/global_way
+[1.152s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages/global_way/select_position.py to select_position.cpython-310.pyc
+[1.153s] Sorry: IndentationError: expected an indented block after 'for' statement on line 39 (select_position.py, line 41)
+[1.153s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages/global_way/__init__.py to __init__.cpython-310.pyc
+[1.153s] byte-compiling /home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages/global_way/tf_creator.py to tf_creator.cpython-310.pyc
+[1.153s] running install_data
+[1.154s] creating /home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/ament_index
+[1.154s] creating /home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/ament_index/resource_index
+[1.154s] creating /home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/ament_index/resource_index/packages
+[1.154s] copying resource/global_way -> /home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/ament_index/resource_index/packages
+[1.154s] copying package.xml -> /home/nik/ros2_ws/src/paint_river_volga/install/global_way/share/global_way
+[1.154s] running install_egg_info
+[1.155s] Copying ../build/global_way/global_way.egg-info to /home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages/global_way-0.0.0-py3.10.egg-info
+[1.156s] running install_scripts
+[1.171s] Installing tf_creator script to /home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/global_way
+[1.171s] writing list of installed files to '/home/nik/ros2_ws/src/paint_river_volga/build/global_way/install.log'
+[1.195s] Invoked command in '/home/nik/ros2_ws/src/paint_river_volga/global_way' returned '0': PYTHONPATH=/home/nik/ros2_ws/src/paint_river_volga/build/global_way/prefix_override:/home/nik/ros2_ws/src/paint_river_volga/install/global_way/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../build/global_way build --build-base /home/nik/ros2_ws/src/paint_river_volga/build/global_way/build install --record /home/nik/ros2_ws/src/paint_river_volga/build/global_way/install.log --single-version-externally-managed
