@@ -4,8 +4,8 @@ import numpy as np
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionServer
-from manipulator_control.srv import MoveSrv
-from manipulator_control.action import ExecuteTrajectory
+#from examle.srv import MoveSrv
+from example_interfaces.action import ExecuteTrajectory
 from threading import Event
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor, SingleThreadedExecutor
@@ -38,7 +38,7 @@ class ExecuteTrajectoryAction(Node):
         parameter_tree = motorcortex.ParameterTree()
         self.motorcortex_types = motorcortex.MessageTypes()
         license_file = os.path.join(
-            get_package_share_directory('manipulator_control'), 'license', 'mcx.cert.pem')
+            get_package_share_directory('mcx_ros'), 'license', 'mcx.cert.pem')
         # Open request connection
 
         try:
@@ -119,7 +119,7 @@ class ExecuteTrajectoryAction(Node):
 def main(args=None):
     rclpy.init(args=args)
 
-    move_manip_action_srv = ManipulatorScanAction()
+    move_manip_action_srv = ExecuteTrajectoryAction()
 
     rclpy.spin(move_manip_action_srv)
 

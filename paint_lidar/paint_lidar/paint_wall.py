@@ -59,11 +59,11 @@ class ServiceFromService(Node):
 
     def __init__(self):
         super().__init__('action_from_service')
-        self.robot = ManipUse()
+        #self.robot = ManipUse()
         self.service_done_event = Event()
         
         self.callback_group = ReentrantCallbackGroup()
-        self._action_client = ActionClient(self, ExecuteTrajectory, 'fibonacci', callback_group=self.callback_group)
+        self._action_client = ActionClient(self, ExecuteTrajectory, 'execute_trajectory', callback_group=self.callback_group)
     
         self.srv = self.create_service(
             SetBool,
@@ -73,7 +73,7 @@ class ServiceFromService(Node):
             )
         #self.create_timer(1, self.feedback_callback, callback_group=self.callback_group)
 
-        self.status_manipulator = True
+        self.status_manipulator = False
 
         self.hok = test_driver_laser.HokuyoManipulator()
         self.pcd = o3d.geometry.PointCloud()
@@ -95,6 +95,7 @@ class ServiceFromService(Node):
         def done_callback(future):
             nonlocal event
             event.set()
+    
         future = self.send_goal(10)
         #self.robot.mission_scan()
         try:
@@ -110,10 +111,11 @@ class ServiceFromService(Node):
             print('End process scan')
         finally:
             pcd = self.pcd
-            o3d.visualization.draw_geometries([pcd])     
+            #o3d.visualization.draw_geometries([pcd])     
             #o3d.io.write_point_cloud('src/paint_river_volga/paint_lidar/scan_obj/1.pcd', pcd) # save pcd data
             pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
             #pcd_new = pcd
+
             #o3d.visualization.draw_geometries([pcd_new])  
 
             response.success = True
@@ -124,6 +126,7 @@ class ServiceFromService(Node):
             self.points = []
             self.points.append([0.0, 0.0, 1.0])
             self.points = np.array(self.points)
+            self.status_manipulator = False
             return response
   
     def send_goal(self, order):
@@ -134,10 +137,10 @@ class ServiceFromService(Node):
         pose1 = Pose()
         pose2 = Pose()
 
-        pose1.position.x = 0.25
-        pose1.position.y = -0.7
-        pose1.position.z = 0.07
-        r1 = R.from_euler('zyx', [179.999 * pi / 180, 0.0027 * pi / 180, 179.999 * pi / 180])
+        pose1.position.x = 47/1000
+        pose1.position.y = -406/1000
+        pose1.position.z = 289/1000
+        r1 = R.from_euler('zyx', [0 * pi / 180, 0 * pi / 180, 180 * pi / 180])
         x,y,z,w = r1.as_quat()
 
         pose1.orientation.x = x
@@ -146,9 +149,9 @@ class ServiceFromService(Node):
         pose1.orientation.w = w
         
 
-        pose2.position.x = -0.25
-        pose2.position.y = -0.7
-        pose2.position.z = 0.07
+        pose2.position.x = 47/1000
+        pose2.position.y = -592/1000
+        pose2.position.z = 291/1000
 
 
         pose2.orientation.x = x
@@ -161,8 +164,8 @@ class ServiceFromService(Node):
         
         goal_msg.poses = poses
 
-        goal_msg.acceleration = 0.1
-        goal_msg.velocity = 0.1
+        goal_msg.acceleration = 0.02
+        goal_msg.velocity = 0.008
         self._action_client.wait_for_server()
         self._send_goal_future = self._action_client.send_goal_async(goal_msg, feedback_callback=self.feedback_callback)
 
@@ -198,9 +201,11 @@ class ServiceFromService(Node):
         
 
     def get_result_callback(self, future):
+        print('hereee')
+        print(future)
         result = future.result().result
-        self.get_logger().info('Result: {0}'.format(result.sequence))
-        self.status_manipulator = result
+        self.get_logger().info('Result: {0}'.format(result))
+        self.status_manipulator = result.success
 
 def main(args=None):
     #manip = ManipUse()

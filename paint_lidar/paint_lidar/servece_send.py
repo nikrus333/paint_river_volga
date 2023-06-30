@@ -1,13 +1,22 @@
 import sys
+import math
+from scipy.spatial.transform import Rotation as R
 
 from example_interfaces.srv import AddTwoInts, SetBool
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import TransformStamped, Quaternion
 from tf2_ros import TransformBroadcaster, Buffer, TransformListener
+from rclpy.callback_groups import ReentrantCallbackGroup, MutuallyExclusiveCallbackGroup
+from rclpy.executors import MultiThreadedExecutor
+from geometry_msgs.msg import Pose
+from rclpy.action import ActionClient
+
+from example_interfaces.action import ExecuteTrajectory 
+
 
 from .lidar_utils import test_driver_laser
-from mcx_ros.srv import MoveSrv   
+
 
 
      
@@ -19,6 +28,8 @@ class MinimalClientAsync(Node):
         self.tf_broadcaster = TransformBroadcaster(self)    
         self.tf_buffer = Buffer()
         self.cli = self.create_client(SetBool, '/point')
+        self.callback_group = ReentrantCallbackGroup()
+        self._action_client = ActionClient(self, ExecuteTrajectory, 'execute_trajectory', callback_group=self.callback_group)
         while not self.cli.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
         self.req = SetBool.Request()
@@ -44,6 +55,68 @@ class MinimalClientAsync(Node):
         transform_stamped_msg2.transform.rotation.z = 0.0#normale[2]#quaternion.z
         transform_stamped_msg2.transform.rotation.w = 1.0#normale[3]#quaternion.w
         self.tf_broadcaster.sendTransform(transform_stamped_msg2)
+    
+    def send_goal(self, points):
+        goal_msg = ExecuteTrajectory.Goal()
+        pi = math.pi
+        poses = []
+        r1 = R.from_euler('zyx', [0 * pi / 180, 0 * pi / 180, 180 * pi / 180])
+        x,y,z,w = r1.as_quat()
+
+        for point in points:
+            pose = Pose()
+            pose.position.x = point[0]
+            pose.position.y = point[1]
+            pose.position.z = point[2] + 0.4
+            pose.orientation.x = x
+            pose.orientation.y = y
+            pose.orientation.z = z
+            pose.orientation.w = w
+            poses.append(pose)
+        goal_msg.poses = poses
+
+        goal_msg.acceleration = 0.02
+        goal_msg.velocity = 0.008
+        self._action_client.wait_for_server()
+        self._send_goal_future = self._action_client.send_goal_async(goal_msg, feedback_callback=self.feedback_callback)
+
+        self._send_goal_future.add_done_callback(self.goal_response_callback)
+    # вызывается при вызове сервиса 
+    # старт манипулятора и старт сканирования   
+    def feedback_callback(self, feedback_msg):
+        value = feedback_msg.feedback.robot_state
+        self.get_logger().info('feed : {0}'.format(value))
+        #params = self.robot.subscription.read()
+        #print(params
+        if value == [0, 0, 0, 0, 0, 0]:
+            return False
+        trans, euler = value[:3], value[3:]
+    
+        trans_init, R = self.hok.coord_euler_to_matrix(trans, euler)
+       
+        #print(trans_init)
+        
+        self.pcd = self.pcd + self.hok.read_laser(trans_init, R)
+        
+
+    def goal_response_callback(self, future):
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            self.get_logger().info('Goal rejected :(')
+            return
+
+        self.get_logger().info('Goal accepted :)')
+
+        self._get_result_future = goal_handle.get_result_async()
+        self._get_result_future.add_done_callback(self.get_result_callback)
+        
+
+    def get_result_callback(self, future):
+        print('hereee')
+        print(future)
+        result = future.result().result
+        self.get_logger().info('Result: {0}'.format(result))
+        self.status_manipulator = result.success
 
     
 
@@ -76,16 +149,20 @@ def main(args=None):
     print(len(plane_list))
 
     paint.DrawPlanes(plane_list)
-    
+    plane_list = [plane_list[1]]
     traectory_list, vector_normale = paint.CreateTraectory(plane_list)
     count_line = 0
     coun = 0
+    points = []
     for temp_traect in traectory_list:
         temp_traect = paint.PCDToNumpy(temp_traect)
         for point in temp_traect:
+            points.append(point)
             minimal_client.tf_call_tool(slise=point, count_line=count_line, count=coun)
             coun += 1
         count_line += 1
+    print(points[0])
+    minimal_client.send_goal(points)
 
     #print(vector_normale)
 

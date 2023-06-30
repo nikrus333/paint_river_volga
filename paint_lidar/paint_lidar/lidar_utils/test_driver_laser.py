@@ -262,13 +262,13 @@ class PaintScanWall():
             
             x_dist = min_x
             while min_y < max_y:
-                print('here')
+                #print('here')
                 while min_x <= max_x:
                     point_ceel.append([(min_x), (min_y), (z_mean)])
                     min_x += x_step
                 min_x = x_dist
                 min_y += y_step
-            print(point_ceel)    
+            #print(point_ceel)    
             pcd = self.NumpyToPCD(np.array(point_ceel))
            
             pcd_cell = pcd.rotate(np.linalg.inv(R))

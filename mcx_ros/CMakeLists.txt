@@ -20,6 +20,7 @@ install(
   PROGRAMS
   src/client.py
   src/ros2api.py
+  src/execute_trajectory_action.py
   libs/__init__.py
   libs/motion_program.py
   libs/robot_command.py
