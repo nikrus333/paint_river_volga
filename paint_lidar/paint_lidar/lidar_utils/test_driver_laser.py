@@ -299,6 +299,14 @@ class PaintScanWall():
     def send_data(self, pcd_list):
         pass
 
+    def select_plane(self, plane_list):
+        print('Введите номер поверхности, которую хотите красить')
+        print('1 - red')
+        print('2 - green')
+        print('3 - blue')
+        nomber_plane =  int(input())
+        plane_list = [plane_list.pop(nomber_plane-1)]
+        return plane_list
 if __name__ == '__main__':
     lidar = HokuyoManipulator()
     lidar.read_laser(1)

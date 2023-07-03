@@ -111,16 +111,17 @@ class ServiceFromService(Node):
             print('End process scan')
         finally:
             pcd = self.pcd
-            #o3d.visualization.draw_geometries([pcd])     
+            o3d.visualization.draw_geometries([pcd])     
             #o3d.io.write_point_cloud('src/paint_river_volga/paint_lidar/scan_obj/1.pcd', pcd) # save pcd data
-            pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
-            #pcd_new = pcd
+            #pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
+            pcd_new = pcd
 
             #o3d.visualization.draw_geometries([pcd_new])  
 
             response.success = True
             numpy_arr = self.paint.PCDToNumpy(pcd_new)
             response.x_data, response.y_data, response.z_data = self.paint.convert_np_srv(numpy_arr)
+            del pcd, self.pcd
             self.pcd = o3d.geometry.PointCloud()
     # *optionally* add initial points
             self.points = []
@@ -183,7 +184,7 @@ class ServiceFromService(Node):
     
         trans_init, R = self.hok.coord_euler_to_matrix(trans, euler)
        
-        print(trans_init)
+        #print(trans_init)
         
         self.pcd = self.pcd + self.hok.read_laser(trans_init, R)
         

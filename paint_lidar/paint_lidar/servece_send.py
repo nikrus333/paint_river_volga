@@ -59,7 +59,23 @@ class MinimalClientAsync(Node):
     def send_goal(self, points):
         goal_msg = ExecuteTrajectory.Goal()
         pi = math.pi
+
+        pose1 = Pose()
+        pose1.position.x = 47/1000
+        pose1.position.y = -406/1000
+        pose1.position.z = 289/1000
+
+        r1 = R.from_euler('zyx', [0 * pi / 180, 0 * pi / 180, 180 * pi / 180])
+        x,y,z,w = r1.as_quat()
+
+        pose1.orientation.x = x
+        pose1.orientation.y = y
+        pose1.orientation.z = z
+        pose1.orientation.w = w
+
         poses = []
+        poses.append(pose1)
+
         r1 = R.from_euler('zyx', [0 * pi / 180, 0 * pi / 180, 180 * pi / 180])
         x,y,z,w = r1.as_quat()
 
@@ -67,7 +83,7 @@ class MinimalClientAsync(Node):
             pose = Pose()
             pose.position.x = point[0]
             pose.position.y = point[1]
-            pose.position.z = point[2] + 0.4
+            pose.position.z = point[2] + 0.1
             pose.orientation.x = x
             pose.orientation.y = y
             pose.orientation.z = z
@@ -76,7 +92,7 @@ class MinimalClientAsync(Node):
         goal_msg.poses = poses
 
         goal_msg.acceleration = 0.02
-        goal_msg.velocity = 0.008
+        goal_msg.velocity = 0.08
         self._action_client.wait_for_server()
         self._send_goal_future = self._action_client.send_goal_async(goal_msg, feedback_callback=self.feedback_callback)
 
@@ -122,7 +138,6 @@ class MinimalClientAsync(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-
     minimal_client = MinimalClientAsync()
     response = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
     paint = test_driver_laser.PaintScanWall()
@@ -146,10 +161,14 @@ def main(args=None):
         count_line += 1
 
     '''
-    print(len(plane_list))
+    #print(len(plane_list))
 
     paint.DrawPlanes(plane_list)
-    plane_list = [plane_list[1]]
+    
+    if len(plane_list) > 1:
+        plane_list = paint.select_plane(plane_list)
+    else:
+        print('one plane')
     traectory_list, vector_normale = paint.CreateTraectory(plane_list)
     count_line = 0
     coun = 0
