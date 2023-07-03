@@ -130,8 +130,8 @@ class ServiceFromService(Node):
             return response
   
     def send_goal(self, order):
-        goal_msg = ExecuteTrajectory.Goal()
         pi = math.pi
+        goal_msg = ExecuteTrajectory.Goal()
         poses = []
 
         pose1 = Pose()
