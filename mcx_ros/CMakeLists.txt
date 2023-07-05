@@ -18,6 +18,7 @@ install(DIRECTORY license
 
 install(
   PROGRAMS
+  src/action_client.py
   src/client.py
   src/ros2api.py
   src/execute_trajectory_action.py

@@ -13,8 +13,11 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
+
 rosidl_generate_interfaces(${PROJECT_NAME}
+  "action/ExecuteTrajectoryArray.action"
   "action/Fibonacci.action"
+  "msg/Euler.msg"
   "action/ExecuteTrajectory.action"
   "msg/Bool.msg"
   "msg/Byte.msg"
@@ -48,7 +51,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/AddTwoInts.srv"
   "srv/SetBool.srv"
   "srv/Trigger.srv"
-  DEPENDENCIES geometry_msgs
+  DEPENDENCIES geometry_msgs 
 )
 
 install(FILES mapping_rules.yaml DESTINATION share/${PROJECT_NAME})
