@@ -1,4 +1,0 @@
-WARNING: '/home/nik/ros2_ws/src/paint_river_volga/mcx_ros/libs' not a valid package name; please use only .-separated package names in setup.py
-package init file 'paint_lidar/__init__.py' not found (or not a regular file)
-/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
-  warnings.warn(

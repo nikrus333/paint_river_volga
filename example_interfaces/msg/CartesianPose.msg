@@ -1,2 +1,0 @@
-geometry_msgs/Pose position
-example_interface/Euler orientation

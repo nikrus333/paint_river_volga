@@ -1,1 +1,0 @@
-# paint_river_volga
