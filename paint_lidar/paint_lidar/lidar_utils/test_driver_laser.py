@@ -6,6 +6,8 @@ import math
 import numpy as np
 import copy
 import random
+from geometry_msgs.msg import Pose, PoseArray
+
 uart_port = '/dev/ttyACM0'
 uart_speed = 19200
 
@@ -261,11 +263,16 @@ class PaintScanWall():
             x_step = 0.05
             
             x_dist = min_x
+            slise_traject = []
+            array_slice_traject = []
             while min_y < max_y:
                 #print('here')
                 while min_x <= max_x:
+                    slise_traject.append([(min_x), (min_y), (z_mean)])
                     point_ceel.append([(min_x), (min_y), (z_mean)])
                     min_x += x_step
+                array_slice_traject.append(slise_traject)
+                slise_traject = []
                 min_x = x_dist
                 min_y += y_step
             #print(point_ceel)    
@@ -276,7 +283,7 @@ class PaintScanWall():
             traectory_cell.append(pcd_cell)
             vector_normale.append([a, b, c])
         
-        return traectory_cell, vector_normale
+        return traectory_cell, vector_normale, array_slice_traject
     
 
     def convert_np_srv(self, pcd_arr):

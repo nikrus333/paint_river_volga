@@ -4,6 +4,8 @@ from threading import Event
 from example_interfaces.srv import AddTwoInts
 from example_interfaces.srv import SetBool
 from example_interfaces.action import ExecuteTrajectory
+from example_interfaces.action import ExecuteTrajectoryArray
+
 import motorcortex
 import rclpy
 from rclpy.node import Node
@@ -13,7 +15,7 @@ from rclpy.action import ActionClient
 from action_tutorials_interfaces.action import Fibonacci
 from rclpy.callback_groups import ReentrantCallbackGroup, MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
-from geometry_msgs.msg import Pose
+from geometry_msgs.msg import Pose, PoseArray
 
 
 import open3d as o3d
@@ -63,7 +65,7 @@ class ServiceFromService(Node):
         self.service_done_event = Event()
         
         self.callback_group = ReentrantCallbackGroup()
-        self._action_client = ActionClient(self, ExecuteTrajectory, 'execute_trajectory', callback_group=self.callback_group)
+        self._action_client = ActionClient(self, ExecuteTrajectoryArray, 'execute_trajectory', callback_group=self.callback_group)
     
         self.srv = self.create_service(
             SetBool,
@@ -111,10 +113,10 @@ class ServiceFromService(Node):
             print('End process scan')
         finally:
             pcd = self.pcd
-            o3d.visualization.draw_geometries([pcd])     
+            #o3d.visualization.draw_geometries([pcd])     
             #o3d.io.write_point_cloud('src/paint_river_volga/paint_lidar/scan_obj/1.pcd', pcd) # save pcd data
-            #pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
-            pcd_new = pcd
+            pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
+            #pcd_new = pcd
 
             #o3d.visualization.draw_geometries([pcd_new])  
 
@@ -132,9 +134,9 @@ class ServiceFromService(Node):
   
     def send_goal(self, order):
         pi = math.pi
-        goal_msg = ExecuteTrajectory.Goal()
+        goal_msg = ExecuteTrajectoryArray.Goal()
         poses = []
-
+        pose_arr1 = PoseArray()
         pose1 = Pose()
         pose2 = Pose()
 
@@ -159,11 +161,9 @@ class ServiceFromService(Node):
         pose2.orientation.y = y
         pose2.orientation.z = z
         pose2.orientation.w = w
-
-        poses.append(pose1)
-        poses.append(pose2)
+        pose_arr1.poses = [pose1, pose2]
         
-        goal_msg.poses = poses
+        goal_msg.poses_array = [pose_arr1]
 
         goal_msg.acceleration = 0.02
         goal_msg.velocity = 0.008

@@ -9,10 +9,12 @@ from geometry_msgs.msg import TransformStamped, Quaternion
 from tf2_ros import TransformBroadcaster, Buffer, TransformListener
 from rclpy.callback_groups import ReentrantCallbackGroup, MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
-from geometry_msgs.msg import Pose
+from geometry_msgs.msg import Pose, PoseArray
 from rclpy.action import ActionClient
 
+
 from example_interfaces.action import ExecuteTrajectory 
+from example_interfaces.action import ExecuteTrajectoryArray
 
 
 from .lidar_utils import test_driver_laser
@@ -29,7 +31,7 @@ class MinimalClientAsync(Node):
         self.tf_buffer = Buffer()
         self.cli = self.create_client(SetBool, '/point')
         self.callback_group = ReentrantCallbackGroup()
-        self._action_client = ActionClient(self, ExecuteTrajectory, 'execute_trajectory', callback_group=self.callback_group)
+        self._action_client = ActionClient(self, ExecuteTrajectoryArray, 'execute_trajectory', callback_group=self.callback_group)
         while not self.cli.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('service not available, waiting again...')
         self.req = SetBool.Request()
@@ -56,43 +58,16 @@ class MinimalClientAsync(Node):
         transform_stamped_msg2.transform.rotation.w = 1.0#normale[3]#quaternion.w
         self.tf_broadcaster.sendTransform(transform_stamped_msg2)
     
-    def send_goal(self, points):
-        goal_msg = ExecuteTrajectory.Goal()
+    def send_goal(self, array_traject_msg):
+        goal_msg = ExecuteTrajectoryArray.Goal()
         pi = math.pi
 
-        pose1 = Pose()
-        pose1.position.x = 47/1000
-        pose1.position.y = -406/1000
-        pose1.position.z = 289/1000
-
-        r1 = R.from_euler('zyx', [0 * pi / 180, 0 * pi / 180, 180 * pi / 180])
-        x,y,z,w = r1.as_quat()
-
-        pose1.orientation.x = x
-        pose1.orientation.y = y
-        pose1.orientation.z = z
-        pose1.orientation.w = w
-
-        poses = []
-        poses.append(pose1)
-
-        r1 = R.from_euler('zyx', [0 * pi / 180, 0 * pi / 180, 180 * pi / 180])
-        x,y,z,w = r1.as_quat()
-
-        for point in points:
-            pose = Pose()
-            pose.position.x = point[0]
-            pose.position.y = point[1]
-            pose.position.z = point[2] + 0.1
-            pose.orientation.x = x
-            pose.orientation.y = y
-            pose.orientation.z = z
-            pose.orientation.w = w
-            poses.append(pose)
-        goal_msg.poses = poses
-
+        for traject in array_traject_msg:
+            goal_msg.poses_array.append(traject)
+        
         goal_msg.acceleration = 0.02
         goal_msg.velocity = 0.08
+        print(goal_msg)
         self._action_client.wait_for_server()
         self._send_goal_future = self._action_client.send_goal_async(goal_msg, feedback_callback=self.feedback_callback)
 
@@ -134,8 +109,27 @@ class MinimalClientAsync(Node):
         self.get_logger().info('Result: {0}'.format(result))
         self.status_manipulator = result.success
 
-    
+    def create_msg(self, array_slise):
+        pi = math.pi
+        array_traject_msg = []
+        for slice in array_slise:
+            pose_array = PoseArray()
+            for point in slice:
+                pose1 = Pose()
+                pose1.position.x = point[0]
+                pose1.position.y = point[1]
+                pose1.position.z = point[2]
+                r1 = R.from_euler('zyx', [0 * pi / 180, 0 * pi / 180, 180 * pi / 180])
+                x,y,z,w = r1.as_quat()
 
+                pose1.orientation.x = x
+                pose1.orientation.y = y
+                pose1.orientation.z = z
+                pose1.orientation.w = w
+                pose_array.poses.append(pose1)
+            array_traject_msg.append(pose_array)
+        return array_traject_msg
+    
 def main(args=None):
     rclpy.init(args=args)
     minimal_client = MinimalClientAsync()
@@ -169,7 +163,10 @@ def main(args=None):
         plane_list = paint.select_plane(plane_list)
     else:
         print('one plane')
-    traectory_list, vector_normale = paint.CreateTraectory(plane_list)
+    traectory_list, vector_normale, array_slice = paint.CreateTraectory(plane_list)
+    print('arra_slice ', array_slice)
+    array_traject_msg = minimal_client.create_msg(array_slice)
+    print('array_traject_msg  ', array_traject_msg)
     count_line = 0
     coun = 0
     points = []
@@ -181,7 +178,7 @@ def main(args=None):
             coun += 1
         count_line += 1
     print(points[0])
-    minimal_client.send_goal(points)
+    minimal_client.send_goal(array_traject_msg)
 
     #print(vector_normale)
 
