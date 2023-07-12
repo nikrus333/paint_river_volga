@@ -29,19 +29,20 @@ class HokuyoManipulator():
         self.trans_init = np.asarray([[1.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0],
                              [0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 1.0]])
 
-    def read_laser(self, T, R):
+    def read_laser(self, T, R, T_tool_matrix  = [-0.07, -0.0392, 0.055]):
         count_pcd = o3d.geometry.PointCloud()
         dict_laser = self.laser.get_single_scan()
         #print(dict_laser)
         points = []
         #print(T)
         #print(T[2] * 1000)
-        
+        T_tool_matrix = [-0.07, -0.0392, 0.055]  #metrs x, y,z for manipulator
+
         for temp in dict_laser:
             #print(temp)
-            z = math.cos(deg2rad(temp)) * dict_laser[temp] / 1000 #+ T[0][0] #* 1000
-            x = -math.sin(deg2rad(temp)) * dict_laser[temp] / 1000 #+ T[1][0] #* 1000
-            y = 0.0 #+ T[2][0] #*1000
+            z = math.cos(deg2rad(temp)) * dict_laser[temp] / 1000  + T_tool_matrix[2]   #metrs
+            x = -math.sin(deg2rad(temp)) * dict_laser[temp] / 1000 + T_tool_matrix[0] 
+            y = 0.0 + T_tool_matrix[1]
             points.append([x, y, z])
             #print(x, y, z)
             #print('----------------')

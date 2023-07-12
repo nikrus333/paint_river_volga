@@ -1,6 +1,7 @@
 geometry_msgs/PoseArray[] poses_array
 float64 velocity
 float64 acceleration
+string type_traject
 ---
 bool success
 ---

@@ -60,6 +60,7 @@ class ExecuteTrajectoryAction(Node):
         poses_array = goal_handle.request.poses_array
         vel = goal_handle.request.velocity
         acceleration = goal_handle.request.acceleration
+        type_traject = goal_handle.type_traject
 
         for arr in poses_array:
             motion_program = MotionProgram(self.req, self.motorcortex_types)

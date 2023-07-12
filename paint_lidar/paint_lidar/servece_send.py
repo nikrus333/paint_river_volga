@@ -67,6 +67,7 @@ class MinimalClientAsync(Node):
         
         goal_msg.acceleration = 0.02
         goal_msg.velocity = 0.08
+        goal_msg.type_traject = 'color'
         print(goal_msg)
         self._action_client.wait_for_server()
         self._send_goal_future = self._action_client.send_goal_async(goal_msg, feedback_callback=self.feedback_callback)
@@ -118,7 +119,7 @@ class MinimalClientAsync(Node):
                 pose1 = Pose()
                 pose1.position.x = point[0]
                 pose1.position.y = point[1]
-                pose1.position.z = point[2]
+                pose1.position.z = point[2] + 0.1
                 r1 = R.from_euler('zyx', [0 * pi / 180, 0 * pi / 180, 180 * pi / 180])
                 x,y,z,w = r1.as_quat()
 

@@ -28,6 +28,7 @@ from ament_index_python.packages import get_package_share_directory
 from scipy.spatial.transform import Rotation as R
 
 from .lidar_utils import test_driver_laser
+from .lidar_utils import 
 
 
 from robot_control.system_defs import InterpreterStates
@@ -167,6 +168,7 @@ class ServiceFromService(Node):
 
         goal_msg.acceleration = 0.02
         goal_msg.velocity = 0.008
+        goal_msg.type_traject = 'scan'
         self._action_client.wait_for_server()
         self._send_goal_future = self._action_client.send_goal_async(goal_msg, feedback_callback=self.feedback_callback)
 
