@@ -2,7 +2,7 @@ import serial
 import time
 
 class closeOpen:
-    def __init__(self, port = '/dev/ttyACM2', baudrate = 57600) -> None:
+    def __init__(self, port = '/dev/ttyACM3', baudrate = 57600) -> None:
         try:
             self.port = port
             self.baudrate = baudrate

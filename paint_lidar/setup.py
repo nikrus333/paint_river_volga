@@ -29,9 +29,8 @@ setup(
             'cliente = paint_lidar.servece_send:main',
             'nozzle_close_open = paint_lidar.nozzle_node:main',
             #test
-            'fibonacci_action_client = paint_lidar.servece_send_copy:main',
+            'test_topic = paint_lidar.servece_send_copy:main',
             'fibonacci_action_service = paint_lidar.action_service:main',
-            ' = paint_lidar.action_service:main',
         ],
     },
 )

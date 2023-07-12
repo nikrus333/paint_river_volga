@@ -7,6 +7,7 @@ from example_interfaces.action import ExecuteTrajectoryArray
 from math import pi, asin, cos, sin, acos, atan2, sqrt, radians
 from typing import Union
 from geometry_msgs.msg import Pose, PoseArray
+from std_msgs.msg import Bool
 from scipy.spatial.transform import Rotation as R
 
 import motorcortex
@@ -25,6 +26,7 @@ class ExecuteTrajectoryAction(Node):
     def __init__(self):
         super().__init__('execute_trajectory_action')
         self._action_srv = ActionServer(self, ExecuteTrajectoryArray, 'execute_trajectory', self.execute_callback)
+        self.publisher_ = self.create_publisher(Bool, '/nozzle_close_open', 1)
         self.__lastMsg = None
 
         parameter_tree = motorcortex.ParameterTree()
@@ -62,6 +64,9 @@ class ExecuteTrajectoryAction(Node):
         acceleration = goal_handle.request.acceleration
         type_traject = goal_handle.request.type_traject
         print(type_traject)
+        type_traject_bool = False
+        if type_traject == 'color':
+            type_traject_bool = True
         for arr in poses_array:
             motion_program = MotionProgram(self.req, self.motorcortex_types)
             points = []
@@ -93,6 +98,9 @@ class ExecuteTrajectoryAction(Node):
                 time.sleep(0.1)
                 print('Waiting for the program to start, robot state: {}'.format(self.robot.getState()))
             while self.robot.getState() is InterpreterStates.PROGRAM_RUN_S.value:
+                msg = Bool()
+                msg.data = type_traject_bool
+                self.publisher_.publish(msg)
                 params = self.subscription.read()
                 value = params[0].value
                 #trans, euler = value[:3], value[3:]
@@ -100,6 +108,9 @@ class ExecuteTrajectoryAction(Node):
                 goal_handle.publish_feedback(feedback_msg)
                 time.sleep(0.01)
                 #print('Playing, robot state: {}'.format(self.robot.getState()))
+            msg = Bool()
+            msg.data = False
+            self.publisher_.publish(msg)
             self.robot.reset()
 
         
