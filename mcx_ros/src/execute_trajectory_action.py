@@ -33,7 +33,7 @@ class ExecuteTrajectoryAction(Node):
             get_package_share_directory('mcx_ros'), 'license', 'mcx.cert.pem')
 
         try:
-            self.req, self.sub = motorcortex.connect('wss://192.168.5.86:5568:5567', self.motorcortex_types, parameter_tree,
+            self.req, self.sub = motorcortex.connect('wss://192.168.5.85:5568:5567', self.motorcortex_types, parameter_tree,
                                                      timeout_ms=1000, certificate=license_file,
                                                      login="admin", password="vectioneer")
             self.subscription = self.sub.subscribe(['root/Control/fkActualToolCoord/toolCoordinates'], 'group1', 5)
@@ -72,7 +72,7 @@ class ExecuteTrajectoryAction(Node):
                 psi, phi, theta = r.as_euler('zyx', degrees=False)
                 points.append(Waypoint([x, y, z, psi, phi, theta]))
             
-            joint_params = self.subscription.read()
+            joint_params = self.joint_subscription.read()
             value = joint_params[0].value
             reference_joint_coord = value
             motion_program.addMoveL(points, vel, acceleration, ref_joint_coord_rad=reference_joint_coord)
