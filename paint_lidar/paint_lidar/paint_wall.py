@@ -28,40 +28,19 @@ from ament_index_python.packages import get_package_share_directory
 from scipy.spatial.transform import Rotation as R
 
 from .lidar_utils import test_driver_laser
-from .lidar_utils import 
+from .lidar_utils import servoPy
 
 
 from robot_control.system_defs import InterpreterStates
 from robot_control.robot_command import RobotCommand
 from robot_control.motion_program import Waypoint, MotionProgram
 
-
-class ManipUse():
-    def __init__(self) -> None:
-        self.__lastMsg = None
-        parameter_tree = motorcortex.ParameterTree()
-        self.motorcortex_types = motorcortex.MessageTypes()
-        license_file = os.path.join(
-            get_package_share_directory('mcx_ros'), 'license', 'mcx.cert.pem')
-        # Open request connection
-        try:
-            self.req, self.sub = motorcortex.connect('wss://192.168.5.85:5568:5567', self.motorcortex_types, parameter_tree,
-                                                     timeout_ms=1000, certificate=license_file,
-                                                     login="admin", password="vectioneer")
-            self.subscription = self.sub.subscribe(['root/Control/fkToolSetPoint/toolCoordinates'], 'group1', 5)
-            self.subscription.get()
-            
-        except Exception as e:
-            return
-        self.robot = RobotCommand(self.req, self.motorcortex_types)
-        self.robot.reset()
-        
-
         
 class ServiceFromService(Node):
 
     def __init__(self):
         super().__init__('action_from_service')
+
         #self.robot = ManipUse()
         self.service_done_event = Event()
         
@@ -79,6 +58,8 @@ class ServiceFromService(Node):
         self.status_manipulator = False
 
         self.hok = test_driver_laser.HokuyoManipulator()
+        #self.servo = servoPy.closeOpen()
+
         self.pcd = o3d.geometry.PointCloud()
     # *optionally* add initial points
         self.points = []
@@ -100,6 +81,7 @@ class ServiceFromService(Node):
             event.set()
     
         future = self.send_goal(10)
+        #self.servo.open()
         #self.robot.mission_scan()
         try:
             if debug:
@@ -114,10 +96,10 @@ class ServiceFromService(Node):
             print('End process scan')
         finally:
             pcd = self.pcd
-            #o3d.visualization.draw_geometries([pcd])     
+            o3d.visualization.draw_geometries([pcd])     
             #o3d.io.write_point_cloud('src/paint_river_volga/paint_lidar/scan_obj/1.pcd', pcd) # save pcd data
-            pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
-            #pcd_new = pcd
+            #pcd_new = o3d.io.read_point_cloud("src/paint_river_volga/paint_lidar/scan_obj/1.pcd")
+            pcd_new = pcd
 
             #o3d.visualization.draw_geometries([pcd_new])  
 
