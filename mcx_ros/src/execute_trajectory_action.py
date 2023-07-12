@@ -91,16 +91,16 @@ class ExecuteTrajectoryAction(Node):
                 else:
 
                     raise Exception('Failed to move to the start position')
-
+                msg = Bool()
+                msg.data = type_traject_bool
+                self.publisher_.publish(msg)
                 self.robot.play()
-
+            
             while self.robot.getState() is InterpreterStates.PROGRAM_IS_DONE.value:
                 time.sleep(0.1)
                 print('Waiting for the program to start, robot state: {}'.format(self.robot.getState()))
             while self.robot.getState() is InterpreterStates.PROGRAM_RUN_S.value:
-                msg = Bool()
-                msg.data = type_traject_bool
-                self.publisher_.publish(msg)
+                
                 params = self.subscription.read()
                 value = params[0].value
                 #trans, euler = value[:3], value[3:]
