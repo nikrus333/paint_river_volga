@@ -63,18 +63,19 @@ class ExecuteTrajectoryAction(Node):
 
         for arr in poses_array:
             motion_program = MotionProgram(self.req, self.motorcortex_types)
+            points = []
             for pose in arr.poses:
                 x = pose.position.x
                 y = pose.position.y
                 z = pose.position.z
                 r = R.from_quat([pose.orientation.x, pose.orientation.y, pose.orientation.z, pose.orientation.w])
                 psi, phi, theta = r.as_euler('zyx', degrees=False)
-                points = []
                 points.append(Waypoint([x, y, z, psi, phi, theta]))
-                joint_params = self.subscription.read()
-                value = joint_params[0].value
-                reference_joint_coord = value
-                motion_program.addMoveL(points, vel, acceleration, ref_joint_coord_rad=reference_joint_coord)
+            
+            joint_params = self.subscription.read()
+            value = joint_params[0].value
+            reference_joint_coord = value
+            motion_program.addMoveL(points, vel, acceleration, ref_joint_coord_rad=reference_joint_coord)
 
             motion_program.send("test1").get()
             if self.robot.play() is InterpreterStates.MOTION_NOT_ALLOWED_S.value:
@@ -98,7 +99,7 @@ class ExecuteTrajectoryAction(Node):
                 goal_handle.publish_feedback(feedback_msg)
                 time.sleep(0.01)
                 #print('Playing, robot state: {}'.format(self.robot.getState()))
-            #self.robot.reset()
+            self.robot.reset()
 
         
         self.robot.reset()
